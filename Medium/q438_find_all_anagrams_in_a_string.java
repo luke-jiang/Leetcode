@@ -10,7 +10,7 @@
   * s = "abab", p = "ab" -> [0,1,2]
   */
 
-  
+
 class Solution {
     // pre-process string p into an array of size 26, representing characters
     // 'a' to 'z'. Each entry contains number of occurences of the corresponding
@@ -70,7 +70,7 @@ class Solution {
             } else {
                 // the current substring cannot be a match, because it contains
                 // more current character than p.
-                // prev is the previous occurence of the current character.
+                // prev points to the previous occurence of the current character.
                 // discard substring s[p1, prev], update running and size accordingly.
                 int prev = p2 - 1;
                 while (prev >= p1 && s.charAt(prev) != s.charAt(p2)) prev--;
