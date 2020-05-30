@@ -19,6 +19,8 @@
 
 class Solution {
 
+    // Define an Orange class that stores the coordinate and DFS depth
+    // of each orange.
     public class Orange {
         int x;
         int y;
