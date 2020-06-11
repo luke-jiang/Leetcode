@@ -1,3 +1,5 @@
+// [BinarySearch]
+
 class Solution {
     // modification based on binary search
     public boolean search(int[] nums, int target) {
