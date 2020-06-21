@@ -21,6 +21,7 @@ class WordDistance {
     // map of string and their indices in words
     Map<String, List<Integer>> map;
 
+    // initialize
     public WordDistance(String[] words) {
         map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
@@ -34,6 +35,7 @@ class WordDistance {
         }
     }
 
+    // this method will be called multiple times.
     public int shortest(String word1, String word2) {
         int dist = Integer.MAX_VALUE;
         List<Integer> ls1 = map.get(word1);
