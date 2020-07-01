@@ -1,4 +1,4 @@
-// [Backtracking]
+// [Backtracking] ***
 
 /** Given a collection of candidate numbers (candidates) and a target number (target),
   * find all unique combinations in candidates where the candidate numbers sums to target.
@@ -7,8 +7,37 @@
   * The solution set must not contain duplicate combinations.
   */
 
+class Solution1 {
+    // more compact version
+    List<List<Integer>> res;
 
-class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        backtrack(candidates, 0, target, path);
+        return res;
+    }
+
+    private void backtrack(int[] cand, int curr, int target, List<Integer> path) {
+        if (target == 0) {
+            res.add(new ArrayList(path));
+            return;
+        } else if (target < 0) {
+            return;
+        }
+
+        for (int i = curr; i < cand.length; i++) {
+            if (i > curr && cand[i] == cand[i-1]) continue;
+            path.add(cand[i]);
+            backtrack(cand, i+1, target-cand[i], path);
+            path.remove(path.size()-1);
+        }
+    }
+}
+
+
+class Solution2 {
     List<List<Integer>> res;
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
