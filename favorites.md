@@ -17,18 +17,18 @@
   - q77_combinations
 
 ## Trie:
-  - ** q208_implement_trie **
-  - ** q211_add_and_search_word **           
+  - **q208_implement_trie**
+  - **q211_add_and_search_word**           
     similar to q208
-  - ** q212_word_search_ii **              
+  - **q212_word_search_ii**              
     trie and DFS
-  - ** q421_maximum_xor_of_two_numbers_in_an_array  **
+  - **q421_maximum_xor_of_two_numbers_in_an_array**
     trie and bitwise
-  - ** q648_replace_words **
+  - **q648_replace_words**
     basic trie application
-  - ** q676_implement_magic_dictionary **
+  - **q676_implement_magic_dictionary**
     harder trie application
-  - ** q677_max_sum_pairs **
+  - **q677_max_sum_pairs**
     trie and tree DFS
 
 ## Heap:
