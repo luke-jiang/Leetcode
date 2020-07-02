@@ -1,26 +1,34 @@
+(This file contains problems listed by category)
+
+
+## BST:
+  - **q98_validate_binary_search_tree**
+    BST preorder traversal using stack
+## Tree BFS:
+
 
 ## Parenthesis:
   [22, 32, ]
 
 ## Backtracking:
   update state; backtrack; undo state
-  - q17_letter_combinations_of_a_phone_number
-  - q22_generate_parenthesis        
+  - **q17_letter_combinations_of_a_phone_number**
+  - **q22_generate_parenthesis**        
     parenthesis
-  - q39_combination_sum             
+  - **q39_combination_sum**             
     basic combination backtracking
-  - q40_combination_sum_ii          
+  - **q40_combination_sum_ii**          
     sort and backtracking
-  - q46_permutations                
+  - **q46_permutations**                
     backtracking and state caching
-  - q47_permutations_ii
-  - q77_combinations
+  - **q47_permutations_ii**
+  - **q77_combinations**
 
 ## Trie:
   - **q208_implement_trie**
   - **q211_add_and_search_word**           
     similar to q208
-  - **q212_word_search_ii**              
+  - **q212_word_search_ii**
     trie and DFS
   - **q421_maximum_xor_of_two_numbers_in_an_array**
     trie and bitwise
@@ -30,6 +38,10 @@
     harder trie application
   - **q677_max_sum_pairs**
     trie and tree DFS
+  - **q720_longest_word_in_dictionary**
+    trie and comparator
 
 ## Heap:
   - q692_top_k_frequent_words
+
+## Comparators & Sorting:
