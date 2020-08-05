@@ -1,4 +1,4 @@
-// [BST]
+// [BST, traversal]
 
 /** Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
   * Example 1:
@@ -21,8 +21,47 @@
      1
   * Output: 3
   */
+  class Solution1 {
+      // first find the inorder traversal of the BST, store that in an array.
+      // then return the kth element in that array.
+      public int kthSmallest(TreeNode root, int k) {
+          List<Integer> arr = new ArrayList<>();
+          inorder(root, arr);
+          return arr.get(k-1);
+      }
 
-class Solution {
+      private void inorder(TreeNode root, List<Integer> arr) {
+          if (root == null) return;
+          inorder(root.left, arr);
+          arr.add(root.val);
+          inorder(root.right, arr);
+      }
+}
+
+class Solution2 {
+    // inorder traversal using stack
+    public int kthSmallest(TreeNode root, int k) {
+        Stack<TreeNode> s = new Stack<>();
+        TreeNode curr = root;
+        while (curr != null || !s.isEmpty()) {
+            while (curr != null) {
+                s.push(curr);
+                curr = curr.left;
+            }
+            curr = s.pop();
+            k--;
+            if (k == 0) {
+                return curr.val;
+            }
+            curr = curr.right;
+        }
+
+        // should never happen
+        return -1;
+    }
+}
+
+class Solution3 {
     Map<TreeNode, Integer> leftCount;
 
     public int kthSmallest(TreeNode root, int k) {
