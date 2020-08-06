@@ -1,4 +1,4 @@
-// [TreeTraversal, Recursion]
+// [TreeTraversal, Recursion] ***
 
 /** Given preorder and inorder traversal of a tree, construct the binary tree.
   *
@@ -13,6 +13,7 @@
 class Solution {
 
     // map keeps track of the inorder index for each node
+    //   val --> inorder
     Map<Integer, Integer> map;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -27,7 +28,7 @@ class Solution {
         return root;
     }
 
-    // index is the root of the tree to be built
+    // index is the preorder of the root of the tree to be built
     // from and to are the inorder range of subtree nodes
     private TreeNode buildTree(int[] preorder, int[] inorder, int index, int from, int to) {
         if (from > to) return null;

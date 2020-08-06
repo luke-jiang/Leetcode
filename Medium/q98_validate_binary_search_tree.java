@@ -16,7 +16,30 @@
   * Explanation: The root node's value is 5 but its right child's value is 4.
   */
 
-class Solution {
+// key here is to use Integer instead of int to specify initial search range.
+
+class Solution1 {
+  // recursion
+    public boolean isValidBST(TreeNode root) {
+        return dfs(root, null, null);
+    }
+
+    private boolean dfs(TreeNode root, Integer from, Integer to) {
+        if (root == null) {
+            return true;
+        }
+        int val = root.val;
+        if (from != null && val <= from) return false;
+        if (to != null && val >= to) return false;
+
+        if (!dfs(root.right, val, to)) return false;
+        if (!dfs(root.left, from, val)) return false;
+
+        return true;
+    }
+}
+
+class Solution2 {
     // inorder traversal using stack
     public boolean isValidBST(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
