@@ -54,7 +54,6 @@ public class Codec {
 
         sb.setLength(sb.length()-1);
         return sb.toString();
-
     }
 
     // Decodes your encoded data to tree.

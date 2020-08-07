@@ -1,4 +1,4 @@
-// [BST]
+// [BST, Parent Map]
 
 /** Given the root of a binary tree, each node in the tree has a distinct value.
   * After deleting all nodes with a value in to_delete, we are left with a forest
@@ -17,7 +17,64 @@
   * to_delete contains distinct values between 1 and 1000.
   */
 
-class Solution {
+class Solution1 {
+    TreeNode[] nodes = new TreeNode[1001];
+    TreeNode[] parents = new TreeNode[1001];
+
+    private void dfs(TreeNode node, TreeNode parent) {
+        if (node == null) {
+            return;
+        } else {
+            nodes[node.val] = node;
+            if (parent != null) {
+                parents[node.val] = parent;
+            }
+            dfs(node.left, node);
+            dfs(node.right, node);
+        }
+
+    }
+
+    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+        List<TreeNode> res = new ArrayList<>();
+        dfs(root, null);
+
+        res.add(root);
+        for (int n : to_delete) {
+            TreeNode node = nodes[n];
+            TreeNode parent = parents[n];
+
+            // remove n from its parent
+            if (parent != null && parent.left == node) {
+                parent.left = null;
+            } else if (parent != null) {
+                parent.right = null;
+            }
+
+            // add its children to res if they are not null
+            if (node.left != null) {
+                res.add(node.left);
+            }
+            if (node.right != null) {
+                res.add(node.right);
+            }
+            node.left = null;
+            node.right = null;
+
+            // check if the node to delete is a root.
+            // if so, remove ot from "res"
+            for (int i = 0; i < res.size(); i++) {
+                if (res.get(i) == node) {
+                    res.remove(i);
+                }
+            }
+        }
+
+        return res;
+    }
+}
+
+class Solution2 {
     TreeNode[] int2node = new TreeNode[1001];
     int[] parent = new int[1001];
 
