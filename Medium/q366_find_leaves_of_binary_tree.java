@@ -1,3 +1,5 @@
+// [Tree]
+
 /** Given a binary tree, collect a tree's nodes as if you were doing this: Collect
   * and remove all leaves, repeat until the tree is empty.
   *
@@ -14,8 +16,10 @@
   */
 
 class Solution {
+    // map stores the depth of all nodes in the tree.
+    // starting with leaf nodes of depth 1.
     Map<TreeNode, Integer> map;
-    int max;
+    int max;        // maximum depth
 
     public List<List<Integer>> findLeaves(TreeNode root) {
         if (root == null) return new ArrayList<>();
@@ -45,6 +49,7 @@ class Solution {
         return res;
     }
 
+    // finds the (maximum) depth of each node
     private void depth(TreeNode root) {
         if (root == null) {
             return;
