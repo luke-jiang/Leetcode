@@ -26,14 +26,16 @@
 
 ## SlidingWindow:
   - **q340_longest_substring_with_at_most_K_distict_characters**
-    SlidingWindow + HashMap
+    SlidingWindow and HashMap
   - **q3_longest_substring_without_repeating_characters**
-    SlidingWindow + HashMap
+    SlidingWindow and HashMap
   - **q187_repeated_DNA_sequences**
-    SlidingWindow + HashSet; Rabin-Karp
+    SlidingWindow and HashSet; Rabin-Karp
   - **q480_sliding_window_median**
     SlidingWindow and MedianHeap
   - **q845_longest_mountain_in_array**
+  - **q239_sliding_window_maximum**
+    SlidingWindow and Queue
 
 ## DP:
   - **q5_longest_palindromic_substring**
