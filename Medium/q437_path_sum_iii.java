@@ -26,10 +26,9 @@
   *
   */
 
-// KEY here is recursion and binary choice
-
-class Solution {
-
+class Solution1 {
+    // recursion
+    // KEY here is recursion and binary choice
     public int pathSum(TreeNode root, int sum) {
         if (root == null) {
             return 0;
@@ -47,5 +46,41 @@ class Solution {
         res += pathInclude(root.left, sum, curr);
         res += pathInclude(root.right, sum, curr);
         return res;
+    }
+}
+
+class Solution2 {
+    int count = 0;
+    int k;
+    //      sum  -> frequency
+    HashMap<Integer, Integer> h = new HashMap<>();
+
+    // prefix sum
+    public int pathSum(TreeNode root, int sum) {
+        k = sum;
+        preorder(root, 0);
+        return count;
+    }
+
+    private void preorder(TreeNode node, int sum) {
+        if (node == null) {
+            return;
+        }
+        sum += node.val;
+
+        // path from root to node
+        if (sum == k) count++;
+
+        count += h.getOrDefault(sum-k, 0);
+
+        // add current sum to the map for child nodes
+        h.put(sum, h.getOrDefault(sum, 0) + 1);
+
+        preorder(node.left, sum);
+        preorder(node.right, sum);
+
+        // remove current sum from the map to avoid using it
+        // in the parallel subtree processing
+        h.put(sum, h.get(sum) - 1);
     }
 }

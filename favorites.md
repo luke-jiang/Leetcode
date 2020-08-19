@@ -7,8 +7,8 @@
     permutation
   - **q133_clone_graph**
     graph search
-  - **q480_sliding_window_median**
-    SlidingWindow and MedianHeap
+  - **q1130_minimum_cost_tree_from_leaf_nodes**
+    Tree, but actually stack
 
 ## Two Pointers
   - **q727_minimum_window_subsequence**
@@ -19,15 +19,20 @@
   - **q410_split_array_largest_sum**
 
 ## Prefix Sum:
-  - **q437**
-  - **q525**
+  - **q437_path_sum_iii**
+    tree and Prefix Sum
+  - **q525_contiguous_array**
   - **q410_split_array_largest_sum**
-    DP and prefix sum
+    DP and Prefix Sum
+  - **q560_subarray_sum_equals_k**
+    HashMap and Prefix Sum
 
-## SlidingWindow:
-  - **q340_longest_substring_with_at_most_K_distict_characters**
-    SlidingWindow and HashMap
+## SlidingWindow & Two pointers:
   - **q3_longest_substring_without_repeating_characters**
+    SlidingWindow and HashMap
+  - **q159_longest_substring_with_at_most_two_distinct_characters**
+    SlidingWindow and HashMap
+  - **q340_longest_substring_with_at_most_K_distict_characters**
     SlidingWindow and HashMap
   - **q187_repeated_DNA_sequences**
     SlidingWindow and HashSet; Rabin-Karp
@@ -36,6 +41,9 @@
   - **q845_longest_mountain_in_array**
   - **q239_sliding_window_maximum**
     SlidingWindow and Queue
+  - **q16_3sum_closest**
+    Two Pointers
+
 
 ## DP:
   - **q5_longest_palindromic_substring**
@@ -90,6 +98,8 @@
   - **q366_find_leaves_of_binary_tree**
     tree depth
   - **q979_distribute_coins_in_binary_tree**
+  - **q437_path_sum_iii**
+    tree and Prefix Sum
 
 
 ## BST:
@@ -162,13 +172,27 @@
   - **q720_longest_word_in_dictionary**
     trie and comparator
 
+## HashMap:
+  - **q1048_longest_string_chain**
+    Sorting and HashMap
+  - **q380_insert_delete_getRandom_O(1)**
+    HashMap design
+  - **q981_time_based_key-value_store**
+    HashMap design
+  - **q560_subarray_sum_equals_k**
+    HashMap and Prefix Sum
+  - **q49_group_anagrams**
+
 ## Heap:
   - **q692_top_k_frequent_words**
+    Heap and comparator
 
 ## Median Heap:
   - **q480**
 
 ## Comparators & Sorting:
+  - **q692_top_k_frequent_words**
+    Heap and comparator
 
 ## Greedy:
   - **1405_longest_happy_string**

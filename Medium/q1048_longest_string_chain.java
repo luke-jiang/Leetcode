@@ -1,4 +1,4 @@
-// [Sort, DP]
+// [Sort, HashMap]
 
 /** Given a list of words, each word consists of English lowercase letters.
   * Let's say word1 is a predecessor of word2 if and only if we can add exactly one
@@ -19,7 +19,7 @@
   * 1 <= words[i].length <= 16
   * words[i] only consists of English lowercase letters.
   */
-  
+
 class Solution {
     public int longestStrChain(String[] words) {
         Arrays.sort(words, (a, b) -> a.length() - b.length());
@@ -28,6 +28,7 @@ class Solution {
 
         for (String word : words) {
             int maxlen = 0;
+            // try each possible predecessor string
             for (int i = 0; i < word.length(); i++) {
                 String prev = word.substring(0, i) + word.substring(i+1);
                 int prevlen = map.getOrDefault(prev, 0);
