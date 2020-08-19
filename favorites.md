@@ -8,6 +8,9 @@
   - **q133_clone_graph**
     graph search
 
+## Two Pointers
+  - **q727_minimum_window_subsequence**
+
 ## Binary Search
   - **q875_koko_eating_bananas**
   - **q1011_capacity_to_ship_packages_within_D_days**
@@ -16,6 +19,8 @@
 ## Prefix Sum:
   - **q437**
   - **q525**
+  - **q410_split_array_largest_sum**
+    DP and prefix sum
 
 ## SlidingWindow + HashMap:
   - **q340**
@@ -42,6 +47,16 @@
     DP, modulo and pre-sort; hard
   - **q85_maximal_rectangle**
     DP; hard
+  - **q410_split_array_largest_sum**
+    DP and prefix sum
+  - **97_interleaving_string**
+  - **q44_wildcard_matching**
+  - **q312_burst_balloons**
+    high frequency
+  - **q403_frog_jump**
+  - **q152_maximum_product_subarray**
+    two DP caches
+  - **q877_stone_game**
 
 ## Tree:
   - **q894_all_possible_full_binary_trees**
