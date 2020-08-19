@@ -22,9 +22,10 @@
   - **q410_split_array_largest_sum**
     DP and prefix sum
 
-## SlidingWindow + HashMap:
+## SlidingWindow:
   - **q340**
-  - **q3**
+  - **q3_longest_substring_without_repeating_characters**
+    SlidingWindow + HashMap
   - **q187**
 
 ## DP:
@@ -162,3 +163,12 @@
 
 ## Greedy:
   - **1405_longest_happy_string**
+
+## Linked List:
+  - **q19_remove_nth_node_from_end_of_list**
+    LinkedList and stack
+  - **q86_partition_list**
+  - **q138_copy_list_with_random_pointer**
+    LinkedList and HashMap
+  - **q142_linked_list_cycle_ii**
+    slow-fast pointer
