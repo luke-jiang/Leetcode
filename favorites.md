@@ -7,6 +7,8 @@
     permutation
   - **q133_clone_graph**
     graph search
+  - **q480_sliding_window_median**
+    SlidingWindow and MedianHeap
 
 ## Two Pointers
   - **q727_minimum_window_subsequence**
@@ -23,10 +25,15 @@
     DP and prefix sum
 
 ## SlidingWindow:
-  - **q340**
+  - **q340_longest_substring_with_at_most_K_distict_characters**
+    SlidingWindow + HashMap
   - **q3_longest_substring_without_repeating_characters**
     SlidingWindow + HashMap
-  - **q187**
+  - **q187_repeated_DNA_sequences**
+    SlidingWindow + HashSet; Rabin-Karp
+  - **q480_sliding_window_median**
+    SlidingWindow and MedianHeap
+  - **q845_longest_mountain_in_array**
 
 ## DP:
   - **q5_longest_palindromic_substring**
