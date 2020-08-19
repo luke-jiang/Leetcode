@@ -8,6 +8,20 @@
   - **q133_clone_graph**
     graph search
 
+## Binary Search
+  - **q875_koko_eating_bananas**
+  - **q1011_capacity_to_ship_packages_within_D_days**
+  - **q410_split_array_largest_sum**
+
+## Prefix Sum:
+  - **q437**
+  - **q525**
+
+## SlidingWindow + HashMap:
+  - **q340**
+  - **q3**
+  - **q187**
+
 ## DP:
   - **q5_longest_palindromic_substring**
     basic palindromic DP
@@ -125,6 +139,9 @@
 
 ## Heap:
   - **q692_top_k_frequent_words**
+
+## Median Heap:
+  - **q480**
 
 ## Comparators & Sorting:
 
