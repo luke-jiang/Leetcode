@@ -1,4 +1,4 @@
-// [Two-Pointers, Pre-Cache]
+// [SlidingWindow, Two-Pointers, Pre-Cache]
 
 /** Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
   * Strings consists of lowercase English letters only and the length of both
@@ -10,8 +10,40 @@
   * s = "abab", p = "ab" -> [0,1,2]
   */
 
+class Solution1 {
+    // more concise solution than the 2-pointers solution.
+    public List<Integer> findAnagrams(String s, String p) {
+        int slen = s.length();
+        int plen = p.length();
 
-class Solution {
+        if (slen < plen) {
+            return new ArrayList<>();
+        }
+
+        int[] sCount = new int[26];
+        int[] pCount = new int[26];
+
+        for (char c : p.toCharArray()) {
+            pCount[c - 'a']++;
+        }
+
+        List<Integer> res = new ArrayList<>();
+
+        for (int i = 0; i < slen; i++) {
+            sCount[s.charAt(i) - 'a']++;
+            if (i >= plen) {
+                sCount[s.charAt(i-plen) - 'a']--;
+            }
+            if (Arrays.equals(pCount, sCount)) {
+                res.add(i-plen+1);
+            }
+        }
+
+        return res;
+    }
+}
+
+class Solution2 {
     // pre-process string p into an array of size 26, representing characters
     // 'a' to 'z'. Each entry contains number of occurences of the corresponding
     // character in string p.

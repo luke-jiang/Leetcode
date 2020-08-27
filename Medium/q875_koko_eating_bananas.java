@@ -1,4 +1,4 @@
-// [BinarySearch]
+// [BinarySearch] ***
 
 /** Koko loves to eat bananas.  There are N piles of bananas, the i-th pile has
   * piles[i] bananas.  The guards have gone and will come back in H hours.
@@ -14,7 +14,7 @@
   * Input: piles = [3,6,7,11], H = 8
   * Output: 4
   */
-  
+
 class Solution {
     public int minEatingSpeed(int[] piles, int H) {
         int low = 1;
