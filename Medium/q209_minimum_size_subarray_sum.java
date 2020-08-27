@@ -9,7 +9,7 @@
   * Explanation: the subarray [4,3] has the minimal length under the problem constraint.
   */
 
-class Solution {
+class Solution1 {
     public int minSubArrayLen(int s, int[] nums) {
         int from = 0;   // [from, i] defines the current subarray in consideration
         int sum = 0;
@@ -26,5 +26,22 @@ class Solution {
         }
 
         return len < Integer.MAX_VALUE ? len : 0;
+    }
+}
+
+class Solution2 {
+    public int minSubArrayLen(int s, int[] nums) {
+        int minlen = Integer.MAX_VALUE;
+        int sum = 0;
+        int left = 0, right = 0;
+        for (; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum >= s) {
+                minlen = Math.min(minlen, right - left + 1);
+                sum -= nums[left];
+                left++;
+            }
+        }
+        return minlen < Integer.MAX_VALUE ? minlen : 0;
     }
 }
