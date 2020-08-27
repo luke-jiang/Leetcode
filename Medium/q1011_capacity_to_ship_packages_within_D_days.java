@@ -1,4 +1,5 @@
 // [BinarySearch]
+
 /** A conveyor belt has packages that must be shipped from one port to another within
   * D days.
   * The i-th package on the conveyor belt has a weight of weights[i].  Each day,
@@ -37,7 +38,7 @@
   * 1 <= weights[i] <= 500
   *
   */
-  
+
 class Solution {
     public int shipWithinDays(int[] weights, int D) {
         int low = 0;

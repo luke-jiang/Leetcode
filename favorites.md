@@ -17,6 +17,13 @@
   - **q875_koko_eating_bananas**
   - **q1011_capacity_to_ship_packages_within_D_days**
   - **q410_split_array_largest_sum**
+    DP or BS
+  - **q1283_find_the_smallest_divisor_given_a_threshold**
+  - **q1482_minimum_number_of_days_to_make_m_Bouquets**
+    harder to check if mid is valid
+  - **q1231_divide_chocolate**
+    hard, BS and Greedy
+  - **q774_minimize_max_distance_to_gas_station**
 
 ## Prefix Sum:
   - **q437_path_sum_iii**
@@ -43,6 +50,7 @@
     SlidingWindow and Queue
   - **q16_3sum_closest**
     Two Pointers
+  - **q209_minimum_size_subarray_sum**
 
 
 ## DP:
@@ -183,6 +191,10 @@
     HashMap and Prefix Sum
   - **q49_group_anagrams**
 
+## Stack:
+  - **q173**
+    BST (inorder) and stack
+
 ## Heap:
   - **q692_top_k_frequent_words**
     Heap and comparator
@@ -193,6 +205,7 @@
 ## Comparators & Sorting:
   - **q692_top_k_frequent_words**
     Heap and comparator
+  - **q23_merge_k_sorted_lists**
 
 ## Greedy:
   - **1405_longest_happy_string**
