@@ -33,6 +33,8 @@
     DP and Prefix Sum
   - **q560_subarray_sum_equals_k**
     HashMap and Prefix Sum
+  - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**
+    LinkedList and Prefix Sum
 
 ## SlidingWindow & Two pointers:
   - **q3_longest_substring_without_repeating_characters**
@@ -54,8 +56,12 @@
 
 
 ## DP:
-  - **q5_longest_palindromic_substring**
-    basic palindromic DP
+  - String DP questions:
+      - **q5_longest_palindromic_substring**
+        basic palindromic DP
+      - **q5_longest_palindromic_substring**
+      - **q44_wildcard_matching**
+      - **q72_edit_distance**
   - **q53_maximum_subarray**
     harder subproblem definition
   - **q62_unique_paths**
@@ -76,7 +82,7 @@
   - **q410_split_array_largest_sum**
     DP and prefix sum
   - **97_interleaving_string**
-  - **q44_wildcard_matching**
+
   - **q312_burst_balloons**
     high frequency
   - **q403_frog_jump**
@@ -145,6 +151,8 @@
 
 ## Parenthesis:
   [22, 32, ]
+  - **q1249_minimum_remove_to_make_valid_parenthesis**
+    Stack and Parenthesis
 
 ## Backtracking:
   - **q17_letter_combinations_of_a_phone_number**
@@ -192,6 +200,10 @@
   - **q49_group_anagrams**
 
 ## Stack:
+  - Monotonic Stack Questions:
+      - **q739_daily_temperatures**
+      - **q503_next_greater_element_ii**
+      - **q907_sum_of_subarray_sums**
   - **q173**
     BST (inorder) and stack
 
@@ -208,7 +220,8 @@
   - **q23_merge_k_sorted_lists**
 
 ## Greedy:
-  - **1405_longest_happy_string**
+  - **q1405_longest_happy_string**
+  - **q621_task_scheduler**
 
 ## Linked List:
   - **q19_remove_nth_node_from_end_of_list**
@@ -218,3 +231,5 @@
     LinkedList and HashMap
   - **q142_linked_list_cycle_ii**
     slow-fast pointer
+  - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**
+    LinkedList and Prefix Sum
