@@ -9,6 +9,8 @@
     graph search
   - **q1130_minimum_cost_tree_from_leaf_nodes**
     Tree, but actually stack
+  - **q1057_campus_bikes**
+    Greedy and BucketSort
 
 ## Two Pointers
   - **q727_minimum_window_subsequence**
@@ -35,37 +37,41 @@
     HashMap and Prefix Sum
   - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**
     LinkedList and Prefix Sum
+  - **q1310_xor_queries_of_a_subarray**
 
-## SlidingWindow & Two pointers:
-  - **q3_longest_substring_without_repeating_characters**
-    SlidingWindow and HashMap
-  - **q159_longest_substring_with_at_most_two_distinct_characters**
-    SlidingWindow and HashMap
-  - **q340_longest_substring_with_at_most_K_distict_characters**
-    SlidingWindow and HashMap
-  - **q187_repeated_DNA_sequences**
-    SlidingWindow and HashSet; Rabin-Karp
-  - **q480_sliding_window_median**
-    SlidingWindow and MedianHeap
-  - **q845_longest_mountain_in_array**
-  - **q239_sliding_window_maximum**
-    SlidingWindow and Queue
-  - **q16_3sum_closest**
-    Two Pointers
-  - **q209_minimum_size_subarray_sum**
+## SlidingWindow & Two-Pointers:
+  - Sliding Window Questions:
+      - **q3_longest_substring_without_repeating_characters**
+        SlidingWindow and HashMap
+      - **q159_longest_substring_with_at_most_two_distinct_characters**
+        SlidingWindow and HashMap
+      - **q340_longest_substring_with_at_most_K_distict_characters**
+        SlidingWindow and HashMap
+      - **q187_repeated_DNA_sequences**
+        SlidingWindow and HashSet; Rabin-Karp
+      - **q480_sliding_window_median**
+        SlidingWindow and MedianHeap
+      - **q239_sliding_window_maximum**
+        SlidingWindow and Queue
+      - **q438_find_all_anagrams_in_a_string**
+      - **q209_minimum_size_subarray_sum**
+      - **q845_longest_mountain_in_array**
+  - Two-Pointers Questions
+      - **q16_3sum_closest**
+      - **q438_find_all_anagrams_in_a_string**
 
 
 ## DP:
-  - String DP questions:
+  - String DP Questions:
       - **q5_longest_palindromic_substring**
         basic palindromic DP
-      - **q5_longest_palindromic_substring**
       - **q44_wildcard_matching**
       - **q72_edit_distance**
+  - 2D DP Questions:
+      - **q62_unique_paths**
+        easy, 2D canonical DP
   - **q53_maximum_subarray**
     harder subproblem definition
-  - **q62_unique_paths**
-    easy, 2D canonical DP
   - **q63_unique_paths_ii**
   - **q64_minimum_path_sum**
     canonical DP
@@ -82,13 +88,14 @@
   - **q410_split_array_largest_sum**
     DP and prefix sum
   - **97_interleaving_string**
-
   - **q312_burst_balloons**
     high frequency
   - **q403_frog_jump**
   - **q152_maximum_product_subarray**
     two DP caches
   - **q877_stone_game**
+  - **q337_house_robber_iii**
+    tree and DP
 
 ## Tree:
   - **q894_all_possible_full_binary_trees**
@@ -114,6 +121,8 @@
   - **q979_distribute_coins_in_binary_tree**
   - **q437_path_sum_iii**
     tree and Prefix Sum
+  - **q337_house_robber_iii**
+    tree and DP
 
 
 ## BST:
@@ -166,14 +175,14 @@
     backtracking and state caching
   - **q47_permutations_ii**
   - **q77_combinations**
-  - **q90_subsets_ii**
+  - **q90_subsets_ii**    
     backtracking and return all walks
   - **q131_palindrome_partitioning**
 
 
 ## Trie:
   - **q208_implement_trie**
-  - **q211_add_and_search_word**           
+  - **q211_add_and_search_word**
     similar to q208
   - **q212_word_search_ii**
     trie and DFS
@@ -189,13 +198,13 @@
     trie and comparator
 
 ## HashMap:
-  - **q1048_longest_string_chain**
+  - **q1048_longest_string_chain**:
     Sorting and HashMap
-  - **q380_insert_delete_getRandom_O(1)**
+  - **q380_insert_delete_getRandom_O(1)**:
     HashMap design
-  - **q981_time_based_key-value_store**
+  - **q981_time_based_key-value_store**:
     HashMap design
-  - **q560_subarray_sum_equals_k**
+  - **q560_subarray_sum_equals_k**:
     HashMap and Prefix Sum
   - **q49_group_anagrams**
 
@@ -204,8 +213,9 @@
       - **q739_daily_temperatures**
       - **q503_next_greater_element_ii**
       - **q907_sum_of_subarray_sums**
-  - **q173**
+  - **q173_binary_search_tree_iterator**
     BST (inorder) and stack
+  - **q735_asteroid_collision**
 
 ## Heap:
   - **q692_top_k_frequent_words**
@@ -222,6 +232,7 @@
 ## Greedy:
   - **q1405_longest_happy_string**
   - **q621_task_scheduler**
+  - **q402_remove_k_digits**
 
 ## Linked List:
   - **q19_remove_nth_node_from_end_of_list**
