@@ -1,5 +1,7 @@
 (This file contains problems listed by category)
 
+# Heading
+
 ## Miscellaneous:
   - **q43_multiply_string**
     string and math
@@ -12,8 +14,6 @@
   - **q1057_campus_bikes**
     Greedy and BucketSort
 
-## Two Pointers
-  - **q727_minimum_window_subsequence**
 
 ## Binary Search
   - **q875_koko_eating_bananas**
@@ -41,17 +41,17 @@
 
 ## SlidingWindow & Two-Pointers:
   - Sliding Window Questions:
-      - **q3_longest_substring_without_repeating_characters**
+      - **q3_longest_substring_without_repeating_characters**:
         SlidingWindow and HashMap
-      - **q159_longest_substring_with_at_most_two_distinct_characters**
+      - **q159_longest_substring_with_at_most_two_distinct_characters**:
         SlidingWindow and HashMap
-      - **q340_longest_substring_with_at_most_K_distict_characters**
+      - **q340_longest_substring_with_at_most_K_distict_characters**:
         SlidingWindow and HashMap
-      - **q187_repeated_DNA_sequences**
+      - **q187_repeated_DNA_sequences**:
         SlidingWindow and HashSet; Rabin-Karp
-      - **q480_sliding_window_median**
+      - **q480_sliding_window_median**:
         SlidingWindow and MedianHeap
-      - **q239_sliding_window_maximum**
+      - **q239_sliding_window_maximum**:
         SlidingWindow and Queue
       - **q438_find_all_anagrams_in_a_string**
       - **q209_minimum_size_subarray_sum**
@@ -59,6 +59,7 @@
   - Two-Pointers Questions
       - **q16_3sum_closest**
       - **q438_find_all_anagrams_in_a_string**
+      - **q727_minimum_window_subsequence**
 
 
 ## DP:
@@ -182,19 +183,19 @@
 
 ## Trie:
   - **q208_implement_trie**
-  - **q211_add_and_search_word**
+  - **q211_add_and_search_word**:
     similar to q208
-  - **q212_word_search_ii**
+  - **q212_word_search_ii**:
     trie and DFS
-  - **q421_maximum_xor_of_two_numbers_in_an_array**
+  - **q421_maximum_xor_of_two_numbers_in_an_array**:
     trie and bitwise
-  - **q648_replace_words**
+  - **q648_replace_words**:
     basic trie application
-  - **q676_implement_magic_dictionary**
+  - **q676_implement_magic_dictionary**:
     harder trie application
-  - **q677_max_sum_pairs**
+  - **q677_max_sum_pairs**:
     trie and tree DFS
-  - **q720_longest_word_in_dictionary**
+  - **q720_longest_word_in_dictionary**:
     trie and comparator
 
 ## HashMap:
@@ -213,7 +214,7 @@
       - **q739_daily_temperatures**
       - **q503_next_greater_element_ii**
       - **q907_sum_of_subarray_sums**
-  - **q173_binary_search_tree_iterator**
+  - **q173_binary_search_tree_iterator**:
     BST (inorder) and stack
   - **q735_asteroid_collision**
 
@@ -235,12 +236,12 @@
   - **q402_remove_k_digits**
 
 ## Linked List:
-  - **q19_remove_nth_node_from_end_of_list**
+  - **q19_remove_nth_node_from_end_of_list**:
     LinkedList and stack
   - **q86_partition_list**
-  - **q138_copy_list_with_random_pointer**
+  - **q138_copy_list_with_random_pointer**:
     LinkedList and HashMap
-  - **q142_linked_list_cycle_ii**
+  - **q142_linked_list_cycle_ii**:
     slow-fast pointer
-  - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**
+  - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**:
     LinkedList and Prefix Sum
