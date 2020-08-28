@@ -40,17 +40,32 @@
     slow-fast pointer
   - **q1171_remove_zero_sum_consecutive_nodes_from_linked_list**:
     LinkedList and Prefix Sum
+  - **q25_reverse_nodes_in_k_groups**
+  - **q23_merge_k_sorted_lists**
+    LinkedList and Heap
 
 
 ## Tree:
+  - Traversal Questions:
+        - **q230_kth_smallest_number_in_bst**
+          inorder traversal using stack
+        - **q105_construct_binary_tree_from_preorder_and_inorder_traversal**
+          preorder and inorder traversal
+        - **q589_N-ary_tree_preorder_traversal**
+        - **q590_N-ary_tree_postorder_traversal**
+        - **q145_binary_tree_postorder_traversal**
+  - Parent Map Questions:
+        - **q236_lowest_common_ancestor_of_a_binary_tree**
+        - **q863_all_nodes_distance_k_in_binary**
+          parent map and BFS
+        - **q1110_delete_nodes_and_return_forest**
+          parent map and BST
   - **q894_all_possible_full_binary_trees**
-    build tree and caching
-  - **q230_kth_smallest_number_in_bst**
-    inorder traversal using stack
+    build tree and caching/DP
+
   - **q297_serialize_and_deserialize_binary_tree**
     tree serialization, BFS; hard; high frequency
-  - **q105_construct_binary_tree_from_preorder_and_inorder_traversal**
-    preorder and inorder traversal
+
   - **q124_binary_tree_maximum_path_sum**
     hard; high frequency
   - **q222_count_complete_tree_nodes**
@@ -74,13 +89,6 @@
   - **q98_validate_binary_search_tree**
     BST preorder traversal using stack
 
-
-## Tree Parent Map:
-  - **q236_lowest_common_ancestor_of_a_binary_tree**
-  - **q863_all_nodes_distance_k_in_binary**
-    parent map and BFS
-  - **q1110_delete_nodes_and_return_forest**
-    parent map and BST
 
 
 ## Tree BFS:
@@ -115,6 +123,8 @@
 
 
 
+
+
 # Algorithms and Techniques
 
 ## Binary Search
@@ -128,6 +138,8 @@
   - **q1231_divide_chocolate**
     hard, BS and Greedy
   - **q774_minimize_max_distance_to_gas_station**
+  - **q84_largest_rectangle_in_histogram**
+    binary search and stack
 
 
 ## DFS:
@@ -167,6 +179,7 @@
       - **q438_find_all_anagrams_in_a_string**
       - **q209_minimum_size_subarray_sum**
       - **q845_longest_mountain_in_array**
+      - **q76_minimum_window_substring**
   - Two-Pointers Questions
       - **q16_3sum_closest**
       - **q438_find_all_anagrams_in_a_string**
@@ -250,3 +263,4 @@
     Tree, but actually stack
   - **q1057_campus_bikes**
     Greedy and BucketSort
+  - **q287_find_the_duplicate_number**

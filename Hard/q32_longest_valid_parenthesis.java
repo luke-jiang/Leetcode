@@ -14,6 +14,7 @@
   * Explanation: The longest valid parentheses substring is "()()"
   *
   */
+
 class Solution1 {
 
     public int longestValidParentheses(String s) {
@@ -25,7 +26,7 @@ class Solution1 {
                 stack.push(i);
             } else {   // right parenthesis
                 stack.pop();
-                if (stack.empty()) {
+                if (stack.isEmpty()) {
                     stack.push(i);
                 } else {
                     max = Math.max(max, i - stack.peek());
