@@ -1,3 +1,4 @@
+// [Binary Search, Stack]
 
 /** Given n non-negative integers representing the histogram's bar height where the
   * width of each bar is 1, find the area of largest rectangle in the histogram.
@@ -13,19 +14,19 @@ class Solution {
     // - max area of the left region to the shortest column
     // - max area of the right region to the shortest column
     // - max area limitedby the shortes column
-    
+
     public int largestRectangleArea(int[] heights) {
-        return helper(heights, 0, heights.length-1);
+        return search(heights, 0, heights.length-1);
     }
 
-    private int helper(int[] heights, int from, int to) {
+    private int search(int[] heights, int from, int to) {
         if (from > to) return 0;
         int min = from;
         for (int i = from; i <= to; i++) {
             if (heights[i] < heights[min]) min = i;
         }
-        int leftRegion = helper(heights, from, min-1);
-        int rightRegion = helper(heights, min+1, to);
+        int leftRegion = search(heights, from, min-1);
+        int rightRegion = search(heights, min+1, to);
         return Math.max((to-from+1) * heights[min], Math.max(leftRegion, rightRegion));
     }
 }
