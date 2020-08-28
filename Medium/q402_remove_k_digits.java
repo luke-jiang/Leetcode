@@ -1,3 +1,5 @@
+// [String, Greedy]
+
 /** Given a non-negative integer num represented as a string, remove k digits from the number
   * so that the new number is the smallest possible.
   *
@@ -24,7 +26,8 @@
   */
 
 class Solution {
-    // keep removing the first digit which is greater than its subsequent digit.
+    // from the highest digit to the lowest, greedily removing the digit which is
+    // greater than its subsequent digit.
     public String removeKdigits(String num, int k) {
         if (k == num.length()) return "0";
 
