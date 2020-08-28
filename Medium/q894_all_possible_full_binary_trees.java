@@ -17,9 +17,10 @@
 // 2. N-FBT cosists of (i)-left subtrees and (N-i-1)-right subtrees forall i in [1, N].
 
 
-class Solution {
+class Solution1 {
     Map<Integer, List<TreeNode>> map = new HashMap<>();
 
+    // top-down memoization approach
     public List<TreeNode> allPossibleFBT(int N) {
         if (map.containsKey(N)) {
             return map.get(N);
@@ -55,7 +56,48 @@ class Solution {
     }
 }
 
-class Solution {
+class Solution2 {
+    public List<TreeNode> allPossibleFBT(int N) {
+        Map<Integer, List<TreeNode>> map = new HashMap<>();
+        makeMap(map, N);
+        return map.get(N);
+    }
+
+    // bottom-up approach
+    private void makeMap(Map<Integer, List<TreeNode>> map, int N) {
+        for (int i = 1; i <= N; i++) {
+            List<TreeNode> list = new ArrayList<>();
+            if (i == 1) {
+                list.add(new TreeNode(0));
+            }
+            for (int j = 1; j < i; j++) {
+                List<TreeNode> left = find(map, j);
+                List<TreeNode> right = find(map, i - 1 - j);
+                for (int L = 0; L < left.size(); L++) {
+                    for (int R = 0; R < right.size(); R++) {
+                        TreeNode curNode = new TreeNode(0);
+                        curNode.left = left.get(L);
+                        curNode.right = right.get(R);
+                        list.add(curNode);
+                    }
+                }
+
+            }
+            map.put(i, list);
+        }
+    }
+
+    private List<TreeNode> find(Map<Integer, List<TreeNode>> map, int n) {
+        List<TreeNode> list = map.get(n);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<>();
+    }
+
+}
+
+class Solution3 {
     Map<Integer, List<TreeNode>> memo = new HashMap<>();
 
     public List<TreeNode> allPossibleFBT(int N) {

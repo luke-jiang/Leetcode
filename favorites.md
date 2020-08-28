@@ -83,6 +83,8 @@
     tree and Prefix Sum
   - **q337_house_robber_iii**
     tree and DP
+  - **q958_check_completeness_of_a_binary_tree**
+    property of complete tree
 
 
 ## BST:
@@ -102,6 +104,7 @@
     DFS, HashMap
   - **q662_maximum_width_of_binary_tree**
     DFS and DFS-array indexing
+  - **q988_smallest_string_starting_from_leaf**
 
 
 ## Trie:
@@ -140,6 +143,8 @@
   - **q774_minimize_max_distance_to_gas_station**
   - **q84_largest_rectangle_in_histogram**
     binary search and stack
+  - **q74_search_a_2D_matrix**
+    2D binary search
 
 
 ## DFS:
