@@ -269,3 +269,7 @@
   - **q1057_campus_bikes**
     Greedy and BucketSort
   - **q287_find_the_duplicate_number**
+  - **q136_single_number**
+    bitwise
+  - **q204_count_primes**
+    DP and math
