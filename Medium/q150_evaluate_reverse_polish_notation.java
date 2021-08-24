@@ -1,4 +1,4 @@
-// [Queue]
+// [Queue / Stack]
 
 /** Evaluate the value of an arithmetic expression in Reverse Polish Notation.
   * Valid operators are +, -, *, /. Each operand may be an integer or another expression.
@@ -66,5 +66,33 @@ class Solution {
             }
         }
         return 0;
+    }
+}
+
+// 08-23-21
+class Solution {
+    Stack<Integer> st;
+    
+    public int evalRPN(String[] tokens) {
+        st = new Stack<>();
+        for (int i = 0; i < tokens.length; i++) {
+            String t = tokens[i];
+            if (t.equals("+")) {
+                st.push(st.pop() + st.pop());
+            } else if (t.equals("-")) {
+                int a = st.pop();
+                int b = st.pop();
+                st.push(b - a);
+            } else if (t.equals("*")) {
+                st.push(st.pop() * st.pop());
+            } else if (t.equals("/")) {
+                int a = st.pop();
+                int b = st.pop();
+                st.push(b / a);
+            } else {
+                st.push(Integer.parseInt(t));
+            }
+        }
+        return st.pop();
     }
 }

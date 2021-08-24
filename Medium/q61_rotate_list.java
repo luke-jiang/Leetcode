@@ -35,3 +35,30 @@ class Solution {
         return curr;
     }
 }
+
+
+class Solution {
+    // 08-23-21
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null) return head; // for null head case
+        // single for-loop to calculate list length and end node
+        int len = 0;
+        ListNode end = null;
+        for (end = head; end.next != null; end = end.next) {
+            len++;
+        }
+        len++;
+        // for one-element case
+        if (len <= 1) return head;
+        // rotate ls by ls.length returns the original list
+        k = k % len;
+        // move `end` by `len-k` steps to the new end position
+        end.next = head;
+        for (int i = 0; i < len - k; i++) {
+            end = end.next;
+        }
+        head = end.next;
+        end.next = null;
+        return head;
+    }
+}

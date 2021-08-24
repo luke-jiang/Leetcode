@@ -79,3 +79,39 @@ class Solution2 {
         inorder(node.right);
     }
 }
+
+class Solution3 {
+    List<TreeNode> nodes;
+
+    public void recoverTree(TreeNode root) {
+        nodes = new ArrayList<>();
+        inorder(root);
+
+        // indices of the wrong nodes
+        int fst = -1;
+        int snd = -1;
+
+        for (int i = 0; i < nodes.size()-1; i++) {
+            int x = nodes.get(i).val;
+            int y = nodes.get(i+1).val;
+            if (fst == -1 && x > y) {
+                fst = i;
+                snd = i + 1;
+            } else if (x > y) {
+                snd = i + 1;
+            }
+        }
+
+        // swap the values
+        int tmp = nodes.get(fst).val;
+        nodes.get(fst).val = nodes.get(snd).val;
+        nodes.get(snd).val = tmp;
+    }
+
+    private void inorder(TreeNode node) {
+        if (node == null) return;
+        inorder(node.left);
+        nodes.add(node);
+        inorder(node.right);
+    }
+}
