@@ -92,3 +92,28 @@ class Solution3 {
         return 1 + l + r;
     }
 }
+
+class Solution {
+    int count;
+    int res;
+
+    // like the 1st solution, but there is no need to store inorder search results in 
+    // an array. A single int is sufficient.
+    
+    public int kthSmallest(TreeNode root, int k) {
+        count = k-1;
+        res = -1;
+        inorder(root);
+        return res;
+    }
+    
+    private void inorder(TreeNode root) {
+        if (root == null || res > -1) return;
+        inorder(root.left);
+        if (count == 0) {
+            res = root.val;
+        }
+        count--;
+        inorder(root.right);
+    }
+}

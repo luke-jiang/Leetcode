@@ -9,43 +9,47 @@
   * "abcda" -> "a"
   */
 
-  class Solution1 {
-      // DP
-      // dp[i][j] is true off s[i, j] is palindromic
-      public String longestPalindrome(String s) {
-          int len = s.length();
-          if (len == 0) return "";
+class Solution {
+    // DP
+    // dp[i][j] is true off s[i, j] is palindromic
+    // dp[i][j] =
+    // | true                    if i == j
+    // | s[i] == s[j]            if i == j + 1
+    // | i == j /\ dp[i+1][j-1]  else
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len == 0) return "";
 
-          boolean[][] dp = new boolean[len][len];
+        boolean[][] dp = new boolean[len][len];
 
-          // indices of the desired substring
-          int start = 0;
-          int end = 0;
+        // indices of the desired substring
+        int start = 0;
+        int end = 0;
 
-          for (int i = 0; i < len; i++) {
-              for (int j = i; j >= 0; j--) {
-                  boolean endEq = (s.charAt(i) == s.charAt(j));
-                  if (i == j) {
-                      // a char by itself is palindromic
-                      dp[i][j] = true;
-                  } else if (i - j == 1) {
-                      // a string of form "ab" is palindromic iff 'a' == 'b'
-                      dp[i][j] = endEq;
-                  } else if (endEq && dp[i-1][j+1]) {
-                      dp[i][j] = true;
-                  }
+        for (int i = 0; i < len; i++) {
+            for (int j = i; j >= 0; j--) {
+                boolean endEq = (s.charAt(i) == s.charAt(j));
+                if (i == j) {
+                    // a char by itself is palindromic
+                    dp[i][j] = true;
+                } else if (i - j == 1) {
+                    // a string of form "ab" is palindromic iff 'a' == 'b'
+                    dp[i][j] = endEq;
+                } else if (endEq && dp[i-1][j+1]) {
+                    dp[i][j] = true;
+                }
 
-                  if (dp[i][j] && i - j > end - start) {
-                      end = i;
-                      start = j;
-                  }
-              }
-          }
-          return s.substring(start, end+1);
-      }
-  }
+                if (dp[i][j] && i - j > end - start) {
+                    end = i;
+                    start = j;
+                }
+            }
+        }
+        return s.substring(start, end+1);
+    }
+}
 
-class Solution2 {
+class Solution {
     int max;
     String substring;
 
@@ -78,7 +82,7 @@ class Solution2 {
 
 
 
-class Solution3 {
+class Solution {
     int maxlen;
     int start;
     int end;

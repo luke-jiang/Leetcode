@@ -29,6 +29,36 @@
 // of its subtrees could add.
 
 
+/** Rationale
+  * There are two kinds of path in a subtree rooted at node N:
+  *     1) path that goes through n
+  *     2) path that ends at n
+  * The max path should be the maximum of 1) and 2). But observe that a path that goes through
+  * n cannot be used to construct max path for its parent. Therefore, the helper function is designed
+  * to return type 2) path, and we use a global `max` to keep track of maximum of type 1) path.
+  * Suppose a subtree returns a negative type 2) path. We cannot select this negative path for constructing 
+  * any type max path. So we max out the path with zero.
+ */
+
+class Solution {
+    int max;
+    
+    public int maxPathSum(TreeNode root) {
+        max = Integer.MIN_VALUE;
+        helper(root);
+        return max;
+    }
+    
+    private int helper(TreeNode node) {
+        if (node == null) return 0;
+        int lsum = Math.max(helper(node.left), 0);
+        int rsum = Math.max(helper(node.right), 0);
+        max = Math.max(max, node.val + lsum + rsum);
+        return node.val + Math.max(lsum, rsum);
+    }
+}
+
+
 class Solution {
     int max_sum = Integer.MIN_VALUE;
 

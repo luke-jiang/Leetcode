@@ -13,11 +13,11 @@
   */
 
 
-class Solution1 {
+class Solution {
     Map<TreeNode, TreeNode> parents;
 
     // use a ParentMap, then do K-step BFS
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         parents = new HashMap<>();
         setParents(root, null);
 
@@ -28,7 +28,7 @@ class Solution1 {
         Set<TreeNode> seen = new HashSet<>();
         seen.add(target);
 
-        for (int i = 0; i < K; i++) { // only do K-step BFS
+        for (int i = 0; i < k; i++) { // only do K-step BFS
             int size = q.size();
             for (int j = 0; j < size; j++) {
                 TreeNode node = q.remove();
@@ -67,12 +67,12 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     List<Integer> ans;
     TreeNode target;
     int K;
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
-        ans = new LinkedList();
+        ans = new LinkedList<>();
         this.target = target;
         this.K = K;
         dfs(root);
