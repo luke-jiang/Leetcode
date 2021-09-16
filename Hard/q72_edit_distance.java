@@ -10,7 +10,7 @@
   */
 
 
-class Solution1 {
+class Solution {
     // dist[i,j] := edit distance between word1[0, i] and word2[0, j]
     // eventually return dist[word1.length-1, word2.length-1]
 
@@ -42,7 +42,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     // memoization
     // dist[i,j] := edit distance between word1[0, i] and word2[0, j]
     // eventually return dist[word1.length-1, word2.length-1]

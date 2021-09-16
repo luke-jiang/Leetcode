@@ -18,7 +18,7 @@
   * The input string length won't exceed 1000.
   */
 
-class Solution1 {
+class Solution {
     int[][] dp;
     public int countSubstrings(String s) {
         int n = s.length();
@@ -63,7 +63,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public int countSubstrings(String s) {
         int res = 0;
         for (int i = 0; i < s.length(); i++) {

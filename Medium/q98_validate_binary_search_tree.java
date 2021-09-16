@@ -18,7 +18,7 @@
 
 // key here is to use Integer instead of int to specify initial search range.
 
-class Solution1 {
+class Solution {
   // recursion
     public boolean isValidBST(TreeNode root) {
         return dfs(root, null, null);
@@ -39,7 +39,21 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
+    // recursion version 2, use Integer type to avoid overflow.
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    
+    private boolean isValidBST(TreeNode root, int left, int right) {
+        if (root == null) return true;
+        if (root.val < left || root.val > right) return false;
+        return isValidBST(root.left, left, root.val) && isValidBST(root.right, root.val, right);
+    }
+}
+
+class Solution {
     // inorder traversal using stack
     public boolean isValidBST(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();

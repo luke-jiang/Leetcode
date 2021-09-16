@@ -9,7 +9,7 @@
   * "abba" outputs 2
   */
 
-class Solution1 {
+class Solution {
     // keeps track of all traversed characters and their most recent indices
     // also keeps track of the length of the current substring w/out repeating chars.
     public int lengthOfLongestSubstring(String s) {
@@ -40,7 +40,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     // sliding window of range[i, j)
     public int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) return 0;

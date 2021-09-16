@@ -24,7 +24,7 @@
   * 1 <= K <= 1e8
   */
 
-class Solution1 {
+class Solution {
     public int missingElement(int[] nums, int k) {
         for (int i = 0; i < nums.length-1; i++) {
             int x = nums[i];
@@ -39,7 +39,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // one-pass, optimized
     public int missingElement(int[] nums, int k) {
         int n = nums.length;

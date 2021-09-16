@@ -9,7 +9,7 @@
 
 
 
-class Solution1 {
+class Solution {
     public void rotate(int[] nums, int k) {
         int len = nums.length;
         k %= len;
@@ -25,7 +25,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public void rotate(int[] nums, int k) {
         int len = nums.length;
         k %= len;

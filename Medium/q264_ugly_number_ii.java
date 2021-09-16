@@ -11,7 +11,7 @@
   * - n does not exceed 1690.
 */
 
-class Solution1 {
+class Solution {
     public int nthUglyNumber(int n) {
         if (n == 1) return 1;
         PriorityQueue<Integer> pq = new PriorityQueue<>();
@@ -38,7 +38,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public int nthUglyNumber(int n) {
         if (n == 1) return 1;
         int[] nums = new int[n];
@@ -81,7 +81,7 @@ class Solution2 {
     }
 }
 
-class Solution3 {
+class Solution {
     // cache the indices of three candidates (*2, *3, *5)
     // prev2 is the pointer to the number whose value * 2 has not yet been considered.
     // similar fot prev3 and prev5

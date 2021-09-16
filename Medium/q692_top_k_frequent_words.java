@@ -24,7 +24,7 @@
   * Try to solve it in O(n log k) time and O(n) extra space.
   */
 
-class Solution1 {
+class Solution {
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> count = new HashMap<>();
         for (String word : words) {
@@ -49,7 +49,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> map = new HashMap<>();
         for (String word : words) {

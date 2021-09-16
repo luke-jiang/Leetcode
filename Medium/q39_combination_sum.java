@@ -10,7 +10,7 @@
   * candicates = [2,3,6,7], target = 7, return [[7], [2,2,3]]
   */
 
-  class Solution1 {
+  class Solution {
       // more compact version
       List<List<Integer>> res;
 
@@ -37,7 +37,7 @@
       }
   }
 
-class Solution2 {
+class Solution {
     // recursive backtracking
 
     List<List<Integer>> res;

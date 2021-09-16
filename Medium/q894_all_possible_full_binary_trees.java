@@ -17,7 +17,7 @@
 // 2. N-FBT cosists of (i)-left subtrees and (N-i-1)-right subtrees forall i in [1, N].
 
 
-class Solution1 {
+class Solution {
     Map<Integer, List<TreeNode>> map = new HashMap<>();
 
     // top-down memoization approach
@@ -56,7 +56,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public List<TreeNode> allPossibleFBT(int N) {
         Map<Integer, List<TreeNode>> map = new HashMap<>();
         makeMap(map, N);
@@ -97,7 +97,7 @@ class Solution2 {
 
 }
 
-class Solution3 {
+class Solution {
     Map<Integer, List<TreeNode>> memo = new HashMap<>();
 
     public List<TreeNode> allPossibleFBT(int N) {

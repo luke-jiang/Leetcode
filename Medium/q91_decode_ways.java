@@ -1,6 +1,6 @@
 // [DP]
 
-class Solution1 {
+class Solution {
     public int numDecodings(String s) {
         int len = s.length()+1;
         if (s.charAt(0) == '0') return 0;
@@ -24,7 +24,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public int numDecodings(String s) {
         int n = s.length();
         int[] dp = new int[n+1];

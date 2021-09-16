@@ -6,7 +6,7 @@
   */
 
 
-class Solution1 {
+class Solution {
     // two pointers, hard part is when n points to the head node.
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null || n <= 0) return head;
@@ -31,7 +31,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         Stack<ListNode> s = new Stack<>();

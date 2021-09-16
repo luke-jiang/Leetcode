@@ -1,5 +1,5 @@
 
-class Solution1 {
+class Solution {
     List<Integer> res;
     // recursive solution
     public List<Integer> preorderTraversal(TreeNode root) {
@@ -21,7 +21,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // iterative solution, using stack
 
     public List<Integer> preorderTraversal(TreeNode root) {

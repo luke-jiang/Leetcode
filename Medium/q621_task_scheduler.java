@@ -13,7 +13,7 @@
   * finish all the given tasks.
   */
 
-public class Solution1 {
+public class Solution {
     // Greedily selects the globally most frequent task and find the
     // maximum idle time, which is the time needed to schedule ONLY the
     // most frequent task. Then, for each less frequent task, decrement
@@ -41,7 +41,7 @@ public class Solution1 {
 }
 
 
-public class Solution2 {
+public class Solution {
     // Math method
     public int leastInterval(char[] tasks, int n) {
         int[] counter = new int[26];

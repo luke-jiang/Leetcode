@@ -1,6 +1,6 @@
 // [Two-Pointers, Pre-Sort]
 
-class Solution1 {
+class Solution {
     List<List<Integer>> res;
 
     // two-pointer 2 sum (in a sorted array)
@@ -43,7 +43,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);

@@ -17,7 +17,7 @@
   * to_delete contains distinct values between 1 and 1000.
   */
 
-class Solution1 {
+class Solution {
     TreeNode[] nodes = new TreeNode[1001];
     TreeNode[] parents = new TreeNode[1001];
 
@@ -74,7 +74,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     TreeNode[] int2node = new TreeNode[1001];
     int[] parent = new int[1001];
 

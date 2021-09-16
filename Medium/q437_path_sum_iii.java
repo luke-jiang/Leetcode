@@ -26,7 +26,7 @@
   *
   */
 
-class Solution1 {
+class Solution {
     // recursion
     // KEY here is recursion and binary choice
     public int pathSum(TreeNode root, int sum) {
@@ -49,7 +49,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     int count = 0;
     int k;
     //      sum  -> frequency

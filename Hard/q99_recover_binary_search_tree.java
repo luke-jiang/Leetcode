@@ -3,7 +3,7 @@
   * Recover the tree without changing its structure.
   */
 
-class Solution1 {
+class Solution {
     List<Integer> tosort;
     List<Integer> sorted;
     List<TreeNode> pointers;
@@ -42,7 +42,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
   // sorting is not necessary
     List<Integer> tosort;
     List<TreeNode> pointers;
@@ -80,7 +80,7 @@ class Solution2 {
     }
 }
 
-class Solution3 {
+class Solution {
     List<TreeNode> nodes;
 
     public void recoverTree(TreeNode root) {

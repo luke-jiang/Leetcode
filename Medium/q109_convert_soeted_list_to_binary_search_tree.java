@@ -10,7 +10,7 @@
   */
 
 
-class Solution1 {
+class Solution {
     public TreeNode sortedListToBST(ListNode head) {
         return buildTree(head, null);
     }
@@ -33,7 +33,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // keep track of the current head of the list,
     // update the head once the left substree is built.
     ListNode head;

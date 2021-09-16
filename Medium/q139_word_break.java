@@ -14,7 +14,7 @@
   * "catsandog", ["cats", "dog", "sand", "and", "cat"] returns false
   */
 
-class Solution1 {
+class Solution {
     // opt[i] := true if the substring s[0, i] is breakable
     // opt[i] := OR { forall 0 <= j < i, opt[j] AND isWord(s[j+1, i]) }
     public boolean wordBreak(String s, List<String> wordDict) {
@@ -34,7 +34,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // slightly optimized version:
     // use set instead of list for checking if a substring is a valid word.
     // eager return when found one valid way of splitting.

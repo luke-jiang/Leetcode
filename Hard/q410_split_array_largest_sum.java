@@ -22,7 +22,7 @@
   * where the largest sum among the two subarrays is only 18.
   */
 
-class Solution1 {
+class Solution {
     // DP solution
     // dp(i, j) := largest subarray sum of nums[0, i] divided into j parts.
     // dp(i, j) := forall k, min(max(dp(k, j-1), sum(nums[k, i])))
@@ -56,7 +56,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // binary search solution
     public int splitArray(int[] nums, int m) {
         int sum = 0, max = 0;

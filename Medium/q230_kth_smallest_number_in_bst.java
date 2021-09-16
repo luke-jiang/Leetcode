@@ -21,7 +21,7 @@
      1
   * Output: 3
   */
-  class Solution1 {
+  class Solution {
       // first find the inorder traversal of the BST, store that in an array.
       // then return the kth element in that array.
       public int kthSmallest(TreeNode root, int k) {
@@ -38,7 +38,7 @@
       }
 }
 
-class Solution2 {
+class Solution {
     // inorder traversal using stack
     public int kthSmallest(TreeNode root, int k) {
         Stack<TreeNode> s = new Stack<>();
@@ -61,7 +61,7 @@ class Solution2 {
     }
 }
 
-class Solution3 {
+class Solution {
     Map<TreeNode, Integer> leftCount;
 
     public int kthSmallest(TreeNode root, int k) {

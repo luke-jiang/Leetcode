@@ -10,7 +10,7 @@
   * s = "abab", p = "ab" -> [0,1,2]
   */
 
-class Solution1 {
+class Solution {
     // more concise solution than the 2-pointers solution.
     public List<Integer> findAnagrams(String s, String p) {
         int slen = s.length();
@@ -43,7 +43,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // pre-process string p into an array of size 26, representing characters
     // 'a' to 'z'. Each entry contains number of occurences of the corresponding
     // character in string p.

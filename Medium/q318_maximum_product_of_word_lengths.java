@@ -1,4 +1,4 @@
-class Solution1 {
+class Solution {
     int[][] dict;
 
     public int maxProduct(String[] words) {
@@ -31,7 +31,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     int[][] dict;
 
     public int maxProduct(String[] words) {

@@ -12,7 +12,7 @@
   * Follow up: Recursive solution is trivial, could you do it iteratively?
   */
   
-class Solution1 {
+class Solution {
     // inorder traversal using stack
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -32,7 +32,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     // recursive
     public List<Integer> inorderTraversal(TreeNode root) {
         if (root == null) {

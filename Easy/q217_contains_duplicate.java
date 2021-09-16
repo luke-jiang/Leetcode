@@ -8,7 +8,7 @@
   * [1,1,1,3,3,4,3,2,4,2] -> true
   */
 
-class Solution1 {
+class Solution {
 
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
@@ -17,7 +17,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
 
     public boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);

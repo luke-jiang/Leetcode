@@ -7,7 +7,7 @@
   * The solution set must not contain duplicate combinations.
   */
 
-class Solution1 {
+class Solution {
     // more compact version
     List<List<Integer>> res;
 
@@ -37,7 +37,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     List<List<Integer>> res;
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {

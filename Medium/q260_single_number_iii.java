@@ -13,7 +13,7 @@
   * Could you implement it using only constant space complexity?
   */
 
-class Solution1 {
+class Solution {
     // naive solution: use set
     public int[] singleNumber(int[] nums) {
        Set<Integer> set = new HashSet<>();
@@ -37,7 +37,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     // use property of xor: x ^ a ^ a = x
     public int[] singleNumber(int[] nums) {
         int xor = nums[0];

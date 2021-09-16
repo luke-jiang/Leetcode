@@ -21,7 +21,7 @@
   * The length of T will be in the range [1, 100].
   */
 
-class Solution1 {
+class Solution {
 
     // DP solution
     // dp[i][j] := starting index of pattern T[0, i] in S[0, j]
@@ -62,7 +62,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
     // two pointers
     // try to find a substring in S that contains T, then go back to find the
     // starting position of S.

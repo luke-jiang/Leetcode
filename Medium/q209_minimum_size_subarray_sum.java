@@ -9,7 +9,7 @@
   * Explanation: the subarray [4,3] has the minimal length under the problem constraint.
   */
 
-class Solution1 {
+class Solution {
     public int minSubArrayLen(int s, int[] nums) {
         int from = 0;   // [from, i] defines the current subarray in consideration
         int sum = 0;
@@ -29,7 +29,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public int minSubArrayLen(int s, int[] nums) {
         int minlen = Integer.MAX_VALUE;
         int sum = 0;

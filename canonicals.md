@@ -70,8 +70,8 @@ q907_sum_of_subarray_sums
 
 ## Binary Search Tree
 A binary search tree is a binary tree that satisfies the following condition:
-    1) all nodes in a node n's LST (left sub-tree) is smaller than the node's value.
-    2) all nodes in a node n's RST (right sub-tree) is larger than the node's value.
+1. all nodes in a node n's LST (left sub-tree) is smaller than the node's value.
+2. all nodes in a node n's RST (right sub-tree) is larger than the node's value.
 The natural order of a BST is pre-order traversal. One can use a stack to perform pre-order traversal.
 
 ## DP

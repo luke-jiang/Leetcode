@@ -15,7 +15,7 @@
   *
   */
 
-class Solution1 {
+class Solution {
 
     public int longestValidParentheses(String s) {
         int max = 0;
@@ -38,7 +38,7 @@ class Solution1 {
 }
 
 
-class Solution2 {
+class Solution {
 
     // dp(i) := longest valid parentheses of substring s[0, i]
     public int longestValidParentheses(String s) {

@@ -22,7 +22,7 @@
   *
   */
 
-class Solution1 {
+class Solution {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
         for (char c : s.toCharArray()) {
@@ -45,7 +45,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
     public boolean isValid(String s) {
         char[] cache = new char[s.length()];
         int len = 0;

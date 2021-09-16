@@ -11,7 +11,7 @@
   * Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
   */
 
-class Solution1 {
+class Solution {
    // brute-force. runtime: O(n^2)
     public int[] twoSum(int[] nums, int target) {
         int[] res = new int[2];
@@ -28,7 +28,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class Solution {
   // use a HashMap to cache traversed <integer, index> pair
   // check if complement of the interger exists in the map
   public int[] twoSum(int[] nums, int target) {
