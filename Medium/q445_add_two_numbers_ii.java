@@ -78,3 +78,45 @@ class Solution {
         return res.val == 0 ? res.next : res;
     }
 }
+
+class Solution {
+    // use stacks
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // find the shorter/longer lists
+        int len1 = 0;
+        int len2 = 0;
+        for (ListNode n = l1; n != null; n = n.next) len1++;
+        for (ListNode n = l2; n != null; n = n.next) len2++;
+        ListNode a = len1 >= len2 ? l1 : l2;
+        ListNode b = len1 >= len2 ? l2 : l1;
+        
+        Stack<ListNode> sta = new Stack<>();
+        Stack<ListNode> stb = new Stack<>();
+        for (ListNode n = a; n != null; n = n.next) sta.push(n);
+        for (ListNode n = b; n != null; n = n.next) stb.push(n);
+        
+        // keep popping nodes from the longer list stack
+        // if the shorter list stack is not empty, pop the node and add its value
+        // otherwise, add 0
+        int carry = 0;
+        while (!sta.isEmpty()) {
+            ListNode x = sta.pop();
+            int y = stb.isEmpty() ? 0 : stb.pop().val;
+            x.val += carry + y;
+            if (x.val >= 10) {
+                carry = 1;
+                x.val -= 10;
+            } else {
+                carry = 0;
+            }
+        }
+
+        // add a new node as head if carry is not zero
+        if (carry == 1) {
+            ListNode hd = new ListNode(1);
+            hd.next = a;
+            a = hd;
+        }
+        return a;
+    }
+}

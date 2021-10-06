@@ -50,3 +50,22 @@ class Solution {
         }
     }
 }
+
+// one pass
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode end = head;
+        for (int i = 0; i < n; i++) {
+            end = end.next;
+        }
+        if (end == null) return head.next;
+        
+        ListNode prev = head;
+        while (end.next != null) {
+            prev = prev.next;
+            end = end.next;
+        }
+        prev.next = prev.next.next;
+        return head;
+    }
+}

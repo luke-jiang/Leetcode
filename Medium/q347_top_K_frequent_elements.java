@@ -42,3 +42,36 @@ class Solution {
         return res;
     }
 }
+
+// Bucket sort:
+// Notice that a frequency can never be larger than nums.length
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        int maxfreq = 1;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int n : nums) {
+            int f = map.getOrDefault(n, 0) + 1;
+            map.put(n, f);
+            maxfreq = Math.max(maxfreq, f);
+        }
+        ArrayList<Integer>[] buckets = new ArrayList[maxfreq+1];
+        for (int i : map.keySet()) {
+            int f = map.get(i);
+            if (buckets[f] == null) {
+                buckets[f] = new ArrayList<>();
+            }
+            buckets[f].add(i);
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = buckets.length - 1; i >= 0 && k > 0; i--) {
+            if (buckets[i] == null) continue;
+            res.addAll(buckets[i]);
+            k -= buckets[i].size();
+        }
+        int[] ans = new int[res.size()];
+        for (int i = 0; i < res.size(); i++) {
+            ans[i] = res.get(i);
+        }
+        return ans;
+    }
+}

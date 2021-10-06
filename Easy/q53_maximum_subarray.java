@@ -31,3 +31,19 @@ class Solution {
         return max;
     }
 }
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int sum = 0;
+        int max = nums[0];
+        for (int n : nums) {
+            if (sum < 0) {
+                sum = n;
+            } else {
+                sum += n;
+            }
+            max = Math.max(max, sum);
+        }
+        return max;
+    }
+}

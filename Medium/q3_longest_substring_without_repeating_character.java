@@ -60,3 +60,21 @@ class Solution {
         return max;
     }
 }
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if (s.length() == 0) return 0;
+        Map<Character, Integer> index = new HashMap<>();
+        int from = 0;
+        int maxlen = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (index.containsKey(c)) {
+                from = Math.max(from, index.get(c) + 1);
+            }
+            index.put(c, i);
+            maxlen = Math.max(maxlen, i - from);
+        }
+        return maxlen + 1;
+    }
+}

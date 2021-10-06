@@ -9,7 +9,7 @@
   */
 
 // INTUITION:
-// firstly, the problem is converted to find the kth element in the merged
+// Firstly, the problem is converted to find the kth element in the merged
 // array of two sorted arrays A and B.
 // Then, consider subarray A[0, k/2] and B[0, k/2], the desired element is the
 // maximum of these two subarrays. So, we can compare A[k/2] and B[k/2] and see

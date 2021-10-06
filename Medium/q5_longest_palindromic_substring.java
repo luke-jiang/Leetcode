@@ -11,7 +11,7 @@
 
 class Solution {
     // DP
-    // dp[i][j] is true off s[i, j] is palindromic
+    // dp[i][j] is true iff s[i, j] is palindromic
     // dp[i][j] =
     // | true                    if i == j
     // | s[i] == s[j]            if i == j + 1

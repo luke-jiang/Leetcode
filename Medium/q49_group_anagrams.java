@@ -33,3 +33,32 @@ class Solution {
         return res;
     }
 }
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            String hash = hash(s);
+            if (!map.containsKey(hash)) {
+                map.put(hash, new ArrayList<>());
+            }
+            map.get(hash).add(s);
+        }
+
+        List<List<String>> res = new ArrayList<>();
+        for (String k : map.keySet()) {
+            res.add(map.get(k));
+        }
+        return res;
+    }
+    
+    private String hash(String s) {
+        char[] freq = new char[26];
+        Arrays.fill(freq, '0');
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            freq[c - 'a']++;
+        }
+        return String.valueOf(freq);
+    }
+}

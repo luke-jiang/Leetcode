@@ -22,3 +22,27 @@ class Solution {
         }
     }
 }
+
+class Solution {
+    int res;
+    
+    public int countArrangement(int n) {
+        res = 0;
+        List<Integer> candidates = new LinkedList<>();
+        for (int i = 1; i <= n; i++) candidates.add(i);
+        backtrack(1, candidates);
+        return res;
+    }
+    
+    private void backtrack(int i, List<Integer> candidates) {
+        if (candidates.isEmpty()) res++;
+        for (int j = 0; j < candidates.size(); j++) {
+            int n = candidates.get(j);
+            if (n % i == 0 || i % n == 0) {
+                candidates.remove(j);
+                backtrack(i+1, candidates);
+                candidates.add(j, n);
+            }
+        }
+    }
+}

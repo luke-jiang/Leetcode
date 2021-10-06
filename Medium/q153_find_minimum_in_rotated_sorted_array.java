@@ -31,3 +31,22 @@ class Solution {
         }
     }
 }
+
+class Solution {
+    public int findMin(int[] nums) {
+        return findMin(nums, 0, nums.length-1);
+    }
+
+    private int findMin(int[] nums, int from, int to) {
+        if (from + 1 == to) return Math.min(nums[from], nums[to]);
+
+        int mid = (from + to) / 2;
+        if (nums[from] > nums[mid]) {
+            return findMin(nums, from, mid);
+        } else if (nums[mid] > nums[to]) {
+            return findMin(nums, mid, to);
+        } else {
+            return nums[from];
+        }
+    }
+}

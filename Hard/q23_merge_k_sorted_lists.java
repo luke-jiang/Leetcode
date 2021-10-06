@@ -1,4 +1,4 @@
-// [LinkedList, PriorityQueue] ***
+// [LinkedList, PriorityQueue] **
 
 /** Given an array of linked-lists lists, each linked list is sorted in ascending order.
   * Merge all the linked-lists into one sort linked-list and return it.
@@ -18,25 +18,18 @@
 
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> heap = new PriorityQueue<>(
-            (n1, n2) -> n1.val - n2.val
-        );
+        PriorityQueue<ListNode> heap = new PriorityQueue<>((x, y) -> x.val - y.val);
         for (ListNode n : lists) {
-            if (n != null) {
-                heap.add(n);
-            }
+            if (n != null) heap.add(n);
         }
-        ListNode res = new ListNode(-1);
-        ListNode end = res;
-        while (heap.size() > 0) {
-            ListNode curr = heap.remove();
-            if (curr.next != null) {
-                heap.add(curr.next);
-            }
-            curr.next = null;
-            end.next = curr;
-            end = curr;
+        ListNode dummy = new ListNode(0);
+        ListNode end = dummy;
+        while (!heap.isEmpty()) {
+            ListNode n = heap.poll();
+            if (n.next != null) heap.add(n.next);
+            end.next = n;
+            end = end.next;
         }
-        return res.next;
+        return dummy.next;
     }
 }

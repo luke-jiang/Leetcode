@@ -55,3 +55,21 @@ class Solution {
 }
 
 // use opt[len+1] and store default cases at opt[0]
+
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> set = new HashSet<>(wordDict);
+        int len = s.length();
+        boolean[] dp = new boolean[len];
+        for (int i = 0; i < len; i++) {
+            if (set.contains(s.substring(0, i+1))) {
+                dp[i] = true;
+            } else {
+                for (int j = 1; j <= i; j++) {
+                    dp[i] = dp[i] || (dp[j-1] && set.contains(s.substring(j, i+1)));
+                }
+            }
+        }
+        return dp[len-1];
+    }
+}

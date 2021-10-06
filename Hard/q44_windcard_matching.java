@@ -110,3 +110,43 @@ class Solution {
         return dp[i][j];
     }
 }
+
+
+class Solution {
+    int[][] dp; // 1 => true, -1 => false, 0 => unsearched
+    
+    public boolean isMatch(String s, String p) {
+        int slen = s.length();
+        int plen = p.length();
+        dp = new int[slen][plen];
+        return search(s, p, slen-1, plen-1) == 1;
+    }
+    
+    private int search(String s, String p, int i, int j) {
+        // System.out.println("i, j:" + i + "," + j);
+        if (i < 0 && j < 0) {
+            return 1;
+        } else if (i < 0) { // i < 0 /\ j >= 0, can match iff the remaining pattern is *+
+            if (p.charAt(j) == '*') return search(s, p, i, j-1);
+            else return -1;
+        } else if (j < 0) { // i >= 0 /\ j < 0, no pattern to match
+            return -1;
+        }
+        if (dp[i][j] == 0) { // i >= 0 /\ j >= 0
+            dp[i][j] = -1;
+            if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '?') {
+                // if two chars are the same, consume them
+                // if the pattern char is '?', also consume
+                dp[i][j] = search(s, p, i-1, j-1);
+            } else if (p.charAt(j) == '*') {
+                // if the pattern char is '*', it can match substring of any length
+                for (int k = i; k >= -1; k--) {
+                    if (search(s, p, k, j-1) == 1) {
+                        dp[i][j] = 1;
+                    }
+                }
+            }
+        }
+        return dp[i][j];
+    }
+}

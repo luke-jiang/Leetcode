@@ -22,21 +22,17 @@ class Solution {
         for (String word : wordList) {
             for (int i = 0; i < L; i++) {
                 String newWord = word.substring(0, i) + "*" + word.substring(i+1, L);
-                if (!dict.containsKey(newWord)) {
-                    List<String> words = new ArrayList<>();
-                    words.add(word);
-                    dict.put(newWord, words);
-                } else {
-                    dict.get(newWord).add(word);
-                }
+                List<String> words = dict.getOrDefault(newWord, new ArrayList<>());
+                words.add(word);
+                dict.put(newWord, words);
             }
         }
 
         Queue<Pair<String, Integer>> q = new LinkedList<>();
         q.add(new Pair(beginWord, 1));
 
-        Map<String, Boolean> visited = new HashMap<>();
-        visited.put(beginWord, true);
+        Set<String> visited = new HashSet<>();
+        visited.add(beginWord);
 
         // BFS
         while (!q.isEmpty()) {
@@ -44,14 +40,14 @@ class Solution {
             String word = node.getKey();
             int level = node.getValue();
             for (int i = 0; i < L; i++) {
-                // try out each patterns
+                // try out each pattern
                 String newWord = word.substring(0, i) + "*" + word.substring(i+1, L);
                 for (String adj : dict.getOrDefault(newWord, new ArrayList<>())) {
                     if (adj.equals(endWord)) {
                         return level + 1;
                     }
-                    if (!visited.containsKey(adj)) {
-                        visited.put(adj, true);
+                    if (!visited.contains(adj)) {
+                        visited.add(adj);
                         q.add(new Pair(adj, level+1));
                     }
                 }

@@ -96,3 +96,39 @@ class Solution {
         return res;
     }
 }
+
+// Use a max heap to store maximum candidates. Before adding max to the result, check
+// if the index of max is out of current window range
+class Solution {
+    
+    class Element {
+        int index;
+        int value;
+        
+        public Element(int i, int v) {
+            index = i;
+            value = v;
+        }
+    }
+
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        PriorityQueue<Element> heap = new PriorityQueue<>((a, b) -> b.value - a.value);
+        int len = nums.length;
+        int[] res = new int[len - k + 1];
+        int i = 0;
+        int j = 0;
+        while (i < k) {
+            heap.add(new Element(i, nums[i]));
+            i++;
+        }
+        res[j++] = heap.peek().value;
+        while (i < len) {
+            // remove invalid maxes whose index are out of the current window
+            while (!heap.isEmpty() && heap.peek().index <= i - k) heap.poll();
+            heap.add(new Element(i, nums[i]));
+            res[j++] = heap.peek().value;
+            i++;
+        }
+        return res;
+    }
+}

@@ -9,7 +9,7 @@
 class MinStack {
     List<Integer> s;
     int min;
-    int freq;
+    int freq; // stores the frequency of the min value
 
     /** initialize your data structure here. */
     public MinStack() {

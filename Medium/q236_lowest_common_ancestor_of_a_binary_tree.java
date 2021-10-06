@@ -51,3 +51,52 @@ class Solution {
         }
     }
 }
+
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        Stack<TreeNode> st = new Stack<>();
+        Map<TreeNode, TreeNode> parent = new HashMap<>();
+        parent.put(root, null);
+        st.push(root);
+        while (!parent.containsKey(p) || !parent.containsKey(q)) {
+            TreeNode n = st.pop();
+            if (n.left != null) {
+                parent.put(n.left, n);
+                st.push(n.left);
+            }
+            if (n.right != null) {
+                parent.put(n.right, n);
+                st.push(n.right);
+            }
+        }
+        
+        Set<TreeNode> ancestors = new HashSet<>();
+        while (p != null) {
+            ancestors.add(p);
+            p = parent.get(p);
+        }
+        while (!ancestors.contains(q)) {
+            q = parent.get(q);
+        }
+        return q;
+        
+    }
+}
+
+
+class Solution {
+    // recursive solution
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (root.val == p.val || root.val == q.val) return root;
+        TreeNode l = lowestCommonAncestor(root.left, p, q);
+        TreeNode r = lowestCommonAncestor(root.right, p, q);
+        if (l != null && r != null) {
+            return root;
+        } else if (l != null) {
+            return l;
+        } else {
+            return r;
+        }
+    }
+}
