@@ -78,5 +78,31 @@ class Solution {
             return nright;
         }
     }
+}
 
+class Solution {
+    public void flatten(TreeNode root) {
+        helper(root);
+    }
+    
+    private TreeNode helper(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode beginl = root.left;
+        TreeNode beginr = root.right;
+        TreeNode endl = helper(beginl);
+        TreeNode endr = helper(beginr);
+        TreeNode end = root;
+        if (endl != null) {
+            end.right = beginl;
+            end = endl;
+        }
+        if (endr != null) {
+            end.right = beginr;
+            end = endr;
+        }
+        root.left = null;
+        return end;
+    }
 }

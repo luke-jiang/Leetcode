@@ -34,3 +34,28 @@ class Solution {
         return false;
     }
 }
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int r1 = 0;
+        int r2 = m-1;
+        int c1 = 0;
+        int c2 = n-1;
+        while (r1 <= r2 && c1 <= c2) {
+            if (matrix[r1][c1] == target || matrix[r1][c2] == target || matrix[r2][c1] == target || matrix[r2][c2] == target) {
+                return true;
+            }
+            // reduce r1, r2;
+            while (r1 < m && matrix[r1][c2] < target) r1++;
+            while (r2 >= 0 && matrix[r2][c1] > target) r2--;
+            if (r1 >= m || r2 < 0) return false;
+            while (c1 < n && matrix[r2][c1] < target) c1++;
+            while (c2 >= 0 && matrix[r1][c2] > target) c2--;
+            if (c1 >= n || c2 < 0) return false;
+            
+        }
+        return false;
+    }
+}

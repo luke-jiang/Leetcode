@@ -273,3 +273,6 @@
     bitwise
   - **q204_count_primes**
     DP and math
+
+
+q279_perfect_squares

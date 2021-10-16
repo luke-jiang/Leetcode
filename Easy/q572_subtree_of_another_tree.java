@@ -66,3 +66,23 @@ class Solution {
         }
     }
 }
+
+class Solution {
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (root == null) {
+            return subRoot == null;
+        } else if (subRoot == null) {
+            return false;
+        }
+        if (root.val == subRoot.val && sameTree(root, subRoot)) {
+            return true;
+        }
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    }
+    
+    private boolean sameTree(TreeNode r1, TreeNode r2) {
+        if (r1 == null && r2 == null) return true;
+        else if (r1 == null || r2 == null) return false;
+        return r1.val == r2.val && sameTree(r1.left, r2.left) && sameTree(r1.right, r2.right);
+    }
+}
