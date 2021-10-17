@@ -41,8 +41,8 @@ class RandomizedSet {
         int last = ls.get(ls.size()-1);
 
         ls.set(index, last);
-        map.put(last, index);
         ls.remove(ls.size()-1);
+        map.put(last, index);
         map.remove(val);
         return true;
 
