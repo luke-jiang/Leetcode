@@ -23,14 +23,11 @@
 
 class Solution {
     class TrieNode {
+        String word;
         TrieNode[] children;
-        boolean isEnd;
-        String val;
-
         public TrieNode() {
-            isEnd = false;
+            word = null;
             children = new TrieNode[26];
-
         }
     }
 
@@ -39,9 +36,7 @@ class Solution {
 
         public Trie(String[] words) {
             root = new TrieNode();
-            for (String word : words) {
-                insert(word);
-            }
+            for (String word : words) insert(word);
         }
 
         public void insert(String word) {
@@ -53,47 +48,45 @@ class Solution {
                 }
                 curr = curr.children[index];
             }
-            curr.val = word;
-            curr.isEnd = true;
+            curr.word = word;
         }
     }
 
+    int m;
+    int n;
     List<String> res;
-    int x;
-    int y;
 
     public List<String> findWords(char[][] board, String[] words) {
+        Trie t = new Trie(words);
+        m = board.length;
+        n = board[n].length;
         res = new ArrayList<>();
-        Trie trie = new Trie(words);
-
-        x = board.length;
-        y = board[0].length;
-
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                dfs(board, i, j, trie.root);
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dfs(board, i, j, t.root);
             }
         }
         return res;
     }
 
     public void dfs(char[][] board, int i, int j, TrieNode node) {
-        if (i < 0 || i >= x || j < 0 || j >= y) return;
+        if (i < 0 || i >= m || j < 0 || j >= n) return;
         char c = board[i][j];
         if (c == '-') return;
         TrieNode next = node.children[c - 'a'];
         if (next == null) return;
 
-        if (next.isEnd && next.val != null) {
-            res.add(next.val);
-            next.val = null;
+        if (next.word != null) {
+            res.add(next.word);
+            next.word = null; // each word only appear in res once
         }
 
         board[i][j] = '-';
 
         dfs(board, i - 1, j ,next);
-        dfs(board, i, j - 1, next);
         dfs(board, i + 1, j, next);
+        dfs(board, i, j - 1, next);
         dfs(board, i, j + 1, next);
 
         board[i][j] = c;

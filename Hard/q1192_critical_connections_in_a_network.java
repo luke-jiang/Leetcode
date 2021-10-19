@@ -1,4 +1,4 @@
-// [Graph, DFS]
+// [Graph, DFS, Tarjan's Algorithm]
 
 /** There are n servers numbered from 0 to n-1 connected by undirected server-to-server connections
   * forming a network where connections[i] = [a, b] represents a connection between servers a and b.
@@ -51,9 +51,7 @@ class Solution {
 
         int minStamp = Integer.MAX_VALUE;
         for (int neighbor : graph[node]) {
-            if (neighbor == parent) {
-                continue;
-            }
+            if (neighbor == parent) continue; // skip the parent
 
             int neighborStamp = dfs(node, neighbor, timestamps);
             minStamp = Math.min(minStamp, neighborStamp);

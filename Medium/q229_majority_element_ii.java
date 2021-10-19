@@ -12,20 +12,20 @@ class Solution {
     // a modification of Boyer-Moore's majority vote algorothm.
     public List<Integer> majorityElement(int[] nums) {
         int cnt1 = 0;
-        int pre1 = -1;
         int cnt2 = 0;
-        int pre2 = -1;
-        for (int i = 0; i < nums.length; i++) {
-            int x = nums[i];
-            if (pre1 == x) {
+        Integer pre1 = null;
+        Integer pre2 = null;
+
+        for (int n : nums) {
+            if (pre1 != null && pre1 == n) {
                 cnt1++;
-            } else if (pre2 == x) {
+            } else if (pre2 != null && pre2 == n) {
                 cnt2++;
             } else if (cnt1 == 0) {
-                pre1 = x;
+                pre1 = n;
                 cnt1 = 1;
             } else if (cnt2 == 0) {
-                pre2 = x;
+                pre2 = n;
                 cnt2 = 1;
             } else {
                 cnt1--;
@@ -36,9 +36,9 @@ class Solution {
         // verification pass
         cnt1 = 0;
         cnt2 = 0;
-        for (int i : nums) {
-            if (i == pre1) cnt1++;
-            if (i == pre2) cnt2++;
+        for (int n : nums) {
+            if (pre1 != null && n == pre1) cnt1++;
+            if (pre2 != null && n == pre2) cnt2++;
         }
         List<Integer> res = new ArrayList<>();
         if (cnt1 > nums.length / 3) res.add(pre1);
