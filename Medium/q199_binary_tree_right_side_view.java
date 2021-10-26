@@ -30,3 +30,24 @@ class Solution {
         return res;
     }
 }
+
+// recursive dfs approach
+class Solution {
+    List<Integer> res;
+
+    public List<Integer> rightSideView(TreeNode root) {
+        res = new ArrayList<>();
+        if (root == null) return res;
+        dfs(root, 0);
+        return res;
+    }
+    
+    private void dfs(TreeNode node, int level) {
+        if (node == null) return;
+        if (level == res.size()) {
+            res.add(node.val);
+        }
+        dfs(node.right, level + 1);
+        dfs(node.left, level + 1);
+    }
+}

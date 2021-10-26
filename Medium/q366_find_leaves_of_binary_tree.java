@@ -14,6 +14,29 @@
 
   * Output: [[4,5,3],[2],[1]]
   */
+class Solution {
+    Map<Integer, List<Integer>> map;
+    
+    public List<List<Integer>> findLeaves(TreeNode root) {
+        map = new HashMap<>();
+        dfs(root);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i : map.keySet()) {
+            res.add(map.get(i));
+        }
+        return res;
+    }
+    
+    private int dfs(TreeNode root) {
+        if (root == null) return 0;
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        int curr = Math.max(left, right) + 1;
+        map.putIfAbsent(curr, new ArrayList<>());
+        map.get(curr).add(root.val);
+        return curr;
+    }
+}
 
 class Solution {
     // map stores the depth of all nodes in the tree.

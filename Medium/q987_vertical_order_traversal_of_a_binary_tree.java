@@ -35,6 +35,52 @@
   * Each node's value will be between 0 and 1000.
   */
 
+class Solution {
+    class Element {
+        int row;
+        int col;
+        TreeNode node;
+        public Element(int row, int col, TreeNode node) {
+            this.row = row; this.col = col; this.node = node;
+        }
+        public String toString() {
+            return "(" + col + "," + row + "," + node.val + ")";
+        }
+    }
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        List<Element> nodes = new ArrayList<>();
+        // use BFS to collect nodes
+        Queue<Element> q = new LinkedList<>();
+        q.add(new Element(0, 0, root));
+        while (!q.isEmpty()) {
+            int sz = q.size();
+            for (int i = 0; i < sz; i++) {
+                Element e = q.remove();
+                nodes.add(e);
+                if (e.node.left != null) {
+                    q.add(new Element(e.row+1, e.col-1, e.node.left));
+                }
+                if (e.node.right != null) {
+                    q.add(new Element(e.row+1, e.col+1, e.node.right));
+                }
+            }
+        }
+        // sort nodes by their col, row, and value
+        Collections.sort(nodes, (i, j) -> i.col != j.col ? i.col - j.col : 
+                        i.row != j.row ? i.row - j.row : i.node.val - j.node.val);
+        // System.out.println(nodes);
+        List<List<Integer>> res = new ArrayList<>();
+        int prev = Integer.MIN_VALUE;
+        for (Element e : nodes) {
+            if (e.col != prev) {
+                res.add(new ArrayList<>());
+                prev = e.col;
+            }
+            res.get(res.size()-1).add(e.node.val);
+        }
+        return res;
+    }
+}
 
 class Solution {
     //    x           y                     treenodes

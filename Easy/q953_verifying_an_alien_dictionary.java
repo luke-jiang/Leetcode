@@ -45,3 +45,33 @@ class Solution {
           return true;
       }
 }
+
+class Solution {
+    public boolean isAlienSorted(String[] words, String order) {
+        int[] dict = new int[26];
+        for (int i = 0; i < order.length(); i++) {
+            char c = order.charAt(i);
+            dict[c - 'a'] = i;
+        }
+        for (int i = 0; i < words.length - 1; i++) {
+            if (!lessThan(dict, words[i], words[i+1])) return false;
+        }
+        return true;
+    }
+    
+    private boolean lessThan(int[] dict, String a, String b) {
+        int i = 0;
+        while (i < Math.min(a.length(), b.length())) {
+            char ai = a.charAt(i);
+            char bi = b.charAt(i);
+            // System.out.println(dict[ai - 'a'] + "," + dict[bi - 'a']);
+            if (dict[ai - 'a'] < dict[bi - 'a']) {
+                return true;
+            } else if (dict[ai - 'a'] > dict[bi - 'a']) {
+                return false;
+            }
+            i++;
+        }
+        return i == a.length();
+    }
+}

@@ -34,3 +34,44 @@ class Solution {
         return res;
     }
 }
+
+
+class Solution {
+    Queue<Character> q = new LinkedList<>();
+
+    public int calculate(String s) {
+        for (char c : s.toCharArray()) q.add(c);
+        
+        int left = getProd();
+        while (!q.isEmpty() && (q.peek() == '+' || q.peek() == '-')) {
+            char op = q.remove();
+            int right = getProd();
+            left = op == '+' ? left + right : left - right;
+        }
+        return left;
+    }
+    
+    private int getInt() {
+        while (!q.isEmpty() && q.peek() == ' ') q.remove(); // remove leading zeroes
+        int res = 0;
+        while (!q.isEmpty() && isDigit(q.peek())) {
+            res = res * 10 + (q.remove() - '0');
+        }
+        while (!q.isEmpty() && q.peek() == ' ') q.remove(); // remove pending zeroes
+        return res;
+    }
+    
+    private int getProd() {
+        int left = getInt();
+        while (!q.isEmpty() && (q.peek() == '*' || q.peek() == '/')) {
+            char op = q.remove();
+            int right = getInt();
+            left = op == '*' ? left * right : left / right;
+        }
+        return left;
+    }
+    
+    private boolean isDigit(char c) {
+        return c >= '0' && c <= '9';
+    }
+}

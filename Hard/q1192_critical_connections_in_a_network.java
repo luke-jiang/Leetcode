@@ -17,6 +17,51 @@
 // before, which means a cycle is present and edge(parent, u) cannot be a critical edge.
 
 class Solution {
+    List<Integer>[] graph;
+    List<List<Integer>> res;
+    int T;
+    int timestamp[];
+    
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+        graph = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            graph[i] = new ArrayList<>();
+        }
+        for (List<Integer> edge : connections) {
+            int u = edge.get(0);
+            int v = edge.get(1);
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+        // System.out.println(Arrays.toString(graph));
+        res = new ArrayList<>();
+        T = 1;
+        timestamp = new int[n];
+        
+        dfs(-1, 0);
+        
+        return res;
+    }
+    
+    private int dfs(int parent, int curr) {
+        if (timestamp[curr] != 0) return timestamp[curr];
+        timestamp[curr] = T++;
+        
+        int min = Integer.MAX_VALUE;
+        for (int neighbor : graph[curr]) {
+            if (neighbor == parent) continue;
+            min = Math.min(min, dfs(curr, neighbor));
+        }
+        
+        if (min >= timestamp[curr] && parent != -1) {
+            res.add(Arrays.asList(parent, curr));
+        }
+        
+        return Math.min(min, timestamp[curr]);
+    }
+}
+
+class Solution {
     List<Integer>[] graph;      // adjacency list representation of the graph
     int T;                      // time counter, which gives the current timestamp.
     List<List<Integer>> res;

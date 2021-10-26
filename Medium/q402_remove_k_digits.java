@@ -24,6 +24,19 @@
   * Output: "0"
   * Explanation: Remove all the digits from the number and it is left with nothing which is 0.
   */
+class Solution {
+    public String removeKdigits(String num, int k) {
+        StringBuilder sb = new StringBuilder(num);
+        for (int i = 0; i < k; i++) {
+            int j = 0;
+            while (j < sb.length() - 1 && sb.charAt(j) <= sb.charAt(j+1)) j++;
+            sb.deleteCharAt(j);
+            while (sb.length() > 1 && sb.charAt(0) == '0') sb.deleteCharAt(0); // remove leadinf zeroes
+            if (sb.length() == 0) return "0";
+        }
+        return sb.toString();
+    }
+}
 
 class Solution {
     // from the highest digit to the lowest, greedily removing the digit which is
