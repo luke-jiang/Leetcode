@@ -14,8 +14,6 @@ public class Solution {
         for (ListNode n = headB; n != null; n = n.next) {
             len2++;
         }
-        System.out.println(len1);
-        System.out.println(len2);
         ListNode shorter = len1 < len2 ? headA : headB;
         ListNode longer  = len1 < len2 ? headB : headA;
         for (int diff = Math.abs(len1 - len2); diff > 0; diff--) {

@@ -14,8 +14,15 @@
   */
 
 class Solution {
-    // dp[i] is the sum of elements of the maximum subarray in nums[0, i]
-    // under the constrain that nums[i] must be included in the subarray.
+    // dp[i] is the sum of elements of the maximum subarray ending at index i.
+    // * recurrence relation:
+    // dp[i] = dp[i-1] + nums[i]        if dp[i-1] >= 0
+    //       | nums[i]                  else
+    // * initial condition:
+    // dp[0] = nums[0]
+
+    // result is max { dp[i] }
+
     public int maxSubArray(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
@@ -33,17 +40,21 @@ class Solution {
 }
 
 class Solution {
+    // Note that dp[i] only requires knowing dp[i-1], so we can reduce the O(n) dp array
+    // into a single `prev` of size O(1):
+    // a.k.a Kadane's Algorithm
     public int maxSubArray(int[] nums) {
-        int sum = 0;
-        int max = nums[0];
-        for (int n : nums) {
-            if (sum < 0) {
-                sum = n;
+        int len = nums.length;
+        int prev = nums[0];
+        int res = prev;
+        for (int i = 1; i < nums.length; i++) {
+            if (prev >= 0) {
+                prev += nums[i];
             } else {
-                sum += n;
+                prev = nums[i];
             }
-            max = Math.max(max, sum);
+            res = Math.max(res, prev);
         }
-        return max;
+        return res;
     }
 }

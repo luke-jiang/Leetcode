@@ -1,4 +1,5 @@
 class Solution {
+    // recursive
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode curr = head;
@@ -12,6 +13,22 @@ class Solution {
 }
 
 class Solution {
+    // iterative
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+        return newHead;
+    }
+}
+
+class Solution {
+    // using stack
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
         Stack<ListNode> st = new Stack<>();
