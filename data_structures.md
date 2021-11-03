@@ -181,8 +181,8 @@ Related Problems:
 # Binary Search Tree
 Binary search tree is a binary tree with the following additional constraints:
 
-1. All nodes in the LST are smaller than the root
-2. All nodes in the LST are larger than the root
+1. All nodes in the left subtree are smaller than the root
+2. All nodes in the right subtree are larger than the root
 
 To search a value in a BST, one can iteratively compare the node value with the target. If the node value is the same as the target, then we have found the target successfully. If the node value is smaller than the target, then the target must be in the RST. Otherwise, the target must be in thr LST.
 
@@ -237,7 +237,6 @@ Related Problems:
 - q677_max_sum_pairs
 - q720_longest_word_in_dictionary
 
-# Binary Search Tree
 
 # Segment Tree
 
