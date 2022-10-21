@@ -34,3 +34,51 @@ class Solution {
         return c >= '0' && c <= '9';
     }
 }
+
+class Solution {
+    // num := [0-9]+
+    // term := (expr) | num
+    // expr := expr + term | expr - term | term
+    
+    Queue<Character> q = new LinkedList<>();
+    public int calculate(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ') q.add(s.charAt(i));
+        }
+        return getExpr();
+    }
+    
+    private int getExpr() {
+        int res = getTerm();
+        while (!q.isEmpty() && (q.peek() == '+' || q.peek() == '-')) {
+            char op = q.poll();
+            if (op == '+') {
+                res = res + getTerm();
+            } else {
+                res = res - getTerm();
+            }
+        }
+        return res;
+    }
+    
+    private int getTerm() {
+        // System.out.println(q);
+        if (q.peek() == '(') {
+            q.poll();
+            int res = getExpr();
+            q.poll();
+            return res;
+        } else {
+            return getNum();
+        }
+    }
+    
+    private int getNum() {
+        int res = 0;
+        while (!q.isEmpty() && q.peek() >= '0' && q.peek() <= '9') {
+            res = res * 10 + (q.poll() - '0');
+        }
+        return res;
+    }
+    
+}

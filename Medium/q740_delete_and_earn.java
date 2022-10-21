@@ -38,3 +38,23 @@ class Solution {
         return Math.max(using, avoid);
     }
 }
+
+class Solution {
+    // use(i) = avoid(i-1) + freq(i) * i
+    // avoid(i) = max { use(i-1), avoid(i-1) }
+    public int deleteAndEarn(int[] nums) {
+        int len = 10001;
+        int[] freq = new int[len];
+        for (int n : nums) freq[n]++;
+        
+        int use = 0;
+        int avoid = 0;
+        for (int i = 0; i < len; i++) {
+            int use1 = avoid + freq[i] * i;
+            int avoid1 = Math.max(use, avoid);
+            use = use1;
+            avoid = avoid1;
+        }
+        return Math.max(use, avoid);
+    }
+}

@@ -239,7 +239,84 @@ Related Problems:
 
 
 # Segment Tree
+Segment tree is useful for *range queries* e.g. how many elements are in a range, what is the maximum/minimum/sum of elements in the range. In high-level terms, a segment tree node stores the following info:
 
+1. what is the associated range of the node
+2. what is the aggregate value of that range
+3. what are the children range of the node (i.e., if a node has range [a, b], the left child should have range [a, mid] and the right child [mid, b] s.t. two children together covers the parent range.)
+
+Internally, we can use an 1-d array to represent the tree and exploit the parent-children index relation:
+
+> For a binary tree, if parent is stored at index i, then the left child is stored at 2*i and the right child 2*i + 1.
+
+The following code snippet shows the implementation of a segment tree for range-sum queries. (i.e., sum of all elements in a range). The implementation contains three major functions:
+
+1. Segment Tree constructor: In this function, we copy elements from the input array into the tree array, and iteratively calculate their parents. Note two things: 1) elements in the input array are leaf nodes, so they are stored to the right half of the `tree` array. 2) we do not need to explicitly store the ranges because they are already available by the index relation. We only need to store the aggregate value in the `tree` array.
+
+2. Update an element at an index: In this function, we update the node as well as its parents. Note that we use the index relation again to identify if the node is a left child or a right child of its parent.
+
+3. Query a range: This is the most tricky one. We need to keep two pointers indicating the current range, and iteratively move them up and update the result until the two pointers meet. 
+
+```java
+class SegmentTree {
+  int[] tree;   // tree[i] stores the sum of elements in a range
+  int n;        // total number of leaf nodes in the tree
+
+  public SegmentTree(int[] nums) {
+    n = nums.length;
+    tree = new int[n * 2]; // need 2*n space to store all leaf nodes and their parents
+
+    // construct the segment tree
+    // 1). copy all values from num into tree[n, 2n]. They are leaf values.
+    for (int i = n, j = 0; j < n; i++, j++) {
+      tree[i] = nums[j];
+    }
+
+    // 2). iteratively compute non-leaf values using parent-children index relation
+    for (int i = n - 1; i > 0; i--) {
+      tree[i] = tree[i * 2] + tree[i * 2 + 1];
+    }
+  }
+
+  public void update(int pos, int val) {
+    // 1). convert pos to tree index and update leaf value
+    pos += n;
+    tree[pos] = val;
+    // 2). iteratively update parents
+    while (pos > 0) {
+      int left  = pos % 2 == 0 ? pos : pos - 1;
+      int right = pos % 2 == 0 ? pos + 1 : pos;
+      tree[pos / 2] = tree[left] + tree[right];
+      pos /= 2;
+    }
+  }
+
+  public int sumRange(int left, int right) {
+    // 1). get leaves corresponding to left and right
+    left += n; right += n;
+    int sum = 0;
+    while (left <= right) {
+      // 2). extra left, should not be included in the sum.
+      if (left % 2 == 1) {
+        // add the value to sum, and increment left
+        sum += tree[left];
+        left++;
+      }
+      if (right % 2 == 0) {
+        sum += tree[right];
+        right--;
+      }
+      // 3). go to their parents
+      left /= 2;
+      right /= 2;
+    }
+    return sum;
+  }
+}
+```
+
+Related Problems:
+- q207_range_sum_query-mutable
 
 # Graph
 Graphs are usually represented using adjacency list, where each node stores its neighbors in a list:
@@ -335,4 +412,52 @@ An Eulerian path visits all edges in a graph exactly once (allowing for revisiti
 2. If not, for each node that contains edges not in the cycle, construct another cycle (called subtour). The Eulerian cycle can be build by integrating all detours into the first cycle.
 
 Hierzolher's algorithm can be adapted to find the Eulerian path by not initially constructing a cycle, but instead constructing a path that does not end with any unvisited edges.
+
+# Disjoint Set / Union Find
+Given a collection of elements and a relation between then with transitivity, we can query if any two elements have the relation.
+
+```Java
+class UnionFind {
+  int count; // number of disjoint sets
+  int[] parent;
+  int[] rank;
+
+  public UnionFind(int n) {
+    count = n;
+    parent = new int[n];
+    rank = new int[n];
+    for (int i = 0; i < n; i++) parent[i] = i;
+  }
+
+  public int find(int p) {
+    while (p != parent[p]) {
+      parent[p] = parent[parent[p]];
+      p = parent[p];
+    }
+    return p;
+  }
+
+  public void union(int p, int q) {
+    int rp = find(p);
+    int rq = find(q);
+    if (rp == rq) return;
+    if (rank[rq] > rank[rp]) {
+      parent[rp] = rq;
+    } else if (rank[rq] < rank[rp] {
+      parent[rq] = rp;
+    } else {
+      // if both ranks are the same, doesn't matter which one
+      // goes under which one.
+      parent[rq] = rp;
+      rank[rp]++;
+    }
+    count--;
+  }
+}
+```
+
+Related Problems:
+- q218_longest_consecutive_sequence
+- q547_number_of_provinces
+q1258_synonymous_sentences
 

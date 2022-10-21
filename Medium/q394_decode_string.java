@@ -41,6 +41,7 @@ class Solution {
         return res;
     }
 
+    // factor := string num [ factor ]
     public String parseFactor(Queue<Character> str) {
         String res = getRegular(str);
         int times = getNumber(str);

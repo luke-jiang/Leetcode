@@ -1,4 +1,35 @@
 class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        int fst = newInterval[0];
+        int snd = newInterval[1];
+        List<int[]> res = new ArrayList<>();
+        int i = 0;
+        while (i < intervals.length && intervals[i][1] < fst) {
+            res.add(intervals[i]);
+            i++;
+        }
+        while (i < intervals.length && intervals[i][0] <= snd) {
+            fst = Math.min(fst, intervals[i][0]);
+            snd = Math.max(snd, intervals[i][1]);
+            i++;
+        }
+        newInterval[0] = fst;
+        newInterval[1] = snd;
+        res.add(newInterval);
+        while (i < intervals.length) {
+            res.add(intervals[i]);
+            i++;
+        }
+        // System.out.println(res);
+        int[][] ans = new int[res.size()][2];
+        for (i = 0; i < res.size(); i++) {
+            ans[i] = res.get(i);
+        }
+        return ans;
+    }
+}
+
+class Solution {
     List<int[]> arr = new ArrayList<>();
     
     public int[][] insert(int[][] intervals, int[] newInterval) {

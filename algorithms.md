@@ -26,7 +26,7 @@ Backtracking is a decrease-and-conquer technique: To solve a problem of size N, 
 - Enumeration Problem: search for all solutions
 
 A backtracking algorithm has the following pattern:
-* Starting an initial state S, a set of choices C, and a constraint P on the states  
+* Starting with an initial state S, a set of choices C, and a constraint P on the states  
 * Select the next element c in C, construct state S + c  
 * check if S + c satisfies the constraint P  
   * if so, S + c is eligible to be further constructed  
